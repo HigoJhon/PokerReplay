@@ -1,0 +1,110 @@
+{
+  "TournamentContext": {
+    "TournamentId": "4004762682",
+    "Game": "No-Limit Hold'em",
+    "BuyInPrize": 0.45,
+    "BuyInRake": 0.05,
+    "TotalHandsProcessedInFile": 20,
+    "NotableHandsCount": 2
+  },
+  "NotableHands": [
+    {
+      "HandIndexInFile": 3,
+      "HandId": "260986349304",
+      "LearningTheme": "Agressividade no Flop / Proteção de Mão",
+      "CoachSummary": "Você jogou bem o pré-flop, mas perdeu valor e controle da iniciativa ao dar check num flop seco no qual deveria aplicar uma continuation bet.",
+      "Level": {
+        "Name": "II",
+        "SmallBlind": 15,
+        "BigBlind": 30,
+        "Ante": 4
+      },
+      "InitialTableState": {
+        "MaxSeats": 8,
+        "ButtonSeat": 5,
+        "Seats": [
+          { "SeatNumber": 1, "PlayerName": "KKPINAKK", "InitialStack": 3500, "IsHero": false },
+          { "SeatNumber": 2, "PlayerName": "DarrylSibeon", "InitialStack": 1200, "IsHero": false },
+          { "SeatNumber": 5, "PlayerName": "775170", "InitialStack": 1444, "IsHero": true },
+          { "SeatNumber": 7, "PlayerName": "Villain3", "InitialStack": 2100, "IsHero": false }
+        ]
+      },
+      "TimelineEvents": [
+        { "EventId": 1, "EventType": "PostAnte", "PlayerName": "KKPINAKK", "Amount": 4 },
+        { "EventId": 2, "EventType": "PostAnte", "PlayerName": "DarrylSibeon", "Amount": 4 },
+        { "EventId": 3, "EventType": "PostAnte", "PlayerName": "775170", "Amount": 4 },
+        { "EventId": 4, "EventType": "PostAnte", "PlayerName": "Villain3", "Amount": 4 },
+        { "EventId": 5, "EventType": "PostSmallBlind", "PlayerName": "Villain3", "Amount": 15 },
+        { "EventId": 6, "EventType": "PostBigBlind", "PlayerName": "KKPINAKK", "Amount": 30 },
+        { "EventId": 7, "EventType": "DealHoleCards", "PlayerName": "775170", "Cards": [{"Rank": "T", "Suit": "c"}, {"Rank": "T", "Suit": "s"}] },
+        { "EventId": 8, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "DarrylSibeon", "IsHero": false, "Action": "Fold" },
+        { "EventId": 9, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "775170", "IsHero": true, "Action": "Raise", "Amount": 60 },
+        { "EventId": 10, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "Villain3", "IsHero": false, "Action": "Fold" },
+        { "EventId": 11, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "KKPINAKK", "IsHero": false, "Action": "Call", "Amount": 30 },
+        { "EventId": 12, "EventType": "DealBoard", "Street": "Flop", "Cards": [{"Rank": "K", "Suit": "s"}, {"Rank": "K", "Suit": "c"}, {"Rank": "6", "Suit": "h"}] },
+        { "EventId": 13, "EventType": "PlayerAction", "Street": "Flop", "PlayerName": "KKPINAKK", "IsHero": false, "Action": "Check" },
+        { 
+          "EventId": 14, 
+          "EventType": "PlayerAction", 
+          "Street": "Flop", 
+          "PlayerName": "775170", 
+          "IsHero": true, 
+          "Action": "Check", 
+          "HeroAnalysis": {
+            "IsKeyDecision": true,
+            "Evaluation": "Mistake",
+            "Commentary": "Aqui o check é um erro estratégico. O board é dobrado de Reis e seco, e você tem o par médio da mesa. Dar check perde valor contra mãos piores que pagariam e permite que o vilão realize equidade de graça.",
+            "SuggestedAction": "Bet",
+            "SuggestedAmount": 45
+          }
+        }
+      ]
+    },
+    {
+      "HandIndexInFile": 7,
+      "HandId": "260986349312",
+      "LearningTheme": "Defesa de Blinds / Ajuste contra 3-Bet",
+      "CoachSummary": "Defesa incorreta fora de posição no pré-flop com uma mão dominada diante de um oponente tight.",
+      "Level": {
+        "Name": "II",
+        "SmallBlind": 15,
+        "BigBlind": 30,
+        "Ante": 4
+      },
+      "InitialTableState": {
+        "MaxSeats": 8,
+        "ButtonSeat": 2,
+        "Seats": [
+          { "SeatNumber": 2, "PlayerName": "DarrylSibeon", "InitialStack": 1140, "IsHero": false },
+          { "SeatNumber": 5, "PlayerName": "775170", "InitialStack": 1380, "IsHero": true },
+          { "SeatNumber": 8, "PlayerName": "ReggieAggro", "InitialStack": 2900, "IsHero": false }
+        ]
+      },
+      "TimelineEvents": [
+        { "EventId": 1, "EventType": "PostAnte", "PlayerName": "DarrylSibeon", "Amount": 4 },
+        { "EventId": 2, "EventType": "PostAnte", "PlayerName": "775170", "Amount": 4 },
+        { "EventId": 3, "EventType": "PostAnte", "PlayerName": "ReggieAggro", "Amount": 4 },
+        { "EventId": 4, "EventType": "PostSmallBlind", "PlayerName": "775170", "Amount": 15 },
+        { "EventId": 5, "EventType": "PostBigBlind", "PlayerName": "ReggieAggro", "Amount": 30 },
+        { "EventId": 6, "EventType": "DealHoleCards", "PlayerName": "775170", "Cards": [{"Rank": "K", "Suit": "h"}, {"Rank": "J", "Suit": "s"}] },
+        { "EventId": 7, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "DarrylSibeon", "IsHero": false, "Action": "Raise", "Amount": 75 },
+        { 
+          "EventId": 8, 
+          "EventType": "PlayerAction", 
+          "Street": "Preflop", 
+          "PlayerName": "775170", 
+          "IsHero": true, 
+          "Action": "Call", 
+          "Amount": 60, 
+          "HeroAnalysis": {
+            "IsKeyDecision": true,
+            "Evaluation": "Inaccurate",
+            "Commentary": "Pagar o raise do cutoff do small blind com KJo fora de posição é desfavorável. KJo domina poucos ranges de open raise e você jogará OOP (fora de posição) o pós-flop inteiro. O fold é a opção mais disciplinada.",
+            "SuggestedAction": "Fold",
+            "SuggestedAmount": 0
+          }
+        }
+      ]
+    }
+  ]
+}

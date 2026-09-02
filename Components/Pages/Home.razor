@@ -1,0 +1,28 @@
+@page "/"
+@inject Replay.Data.HandHistoryLoader Loader
+
+<h1>Poker Replay</h1>
+
+@if (dados is null)
+{
+    <p>Carregando...</p>
+}
+else
+{
+    <p>Torneio: @dados.TournamentContext.TournamentId</p>
+    <ul>
+        @foreach (var hand in dados.NotableHands)
+        {
+            <li>Mão @hand.HandIndexInFile - @hand.LearningTheme</li>
+        }
+    </ul>
+}
+
+@code {
+    private Replay.Models.HandHistoryFile? dados;
+
+    protected override async Task OnInitializedAsync()
+    {
+        dados = await Loader.LoadAsync();
+    }
+}
