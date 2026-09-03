@@ -1,51 +1,108 @@
-.table-area {
-    position: relative;
-    background: #0b6e4f;
-    border-radius: 200px;
-    padding: 40px;
-    min-height: 300px; 
-}
-.seats { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.seat { background: #1e1e1e; color: #fff; padding: 8px 12px; border-radius: 8px; opacity: 1; }
-.seat.folded { opacity: 0.35; }
-.seat.acting { outline: 2px solid gold; }
-.card { display: inline-block; background: #fff; border-radius: 4px; padding: 2px 6px; margin-right: 4px; font-weight: bold; }
-.board, .pot { text-align: center; color: #fff; margin-bottom: 10px; }
-.coach-box { background: #fff3cd; border-left: 4px solid #d39e00; padding: 10px; margin-top: 12px; }
-.controls { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
-.action-log { max-height: 150px; overflow-y: auto; margin-top: 12px; font-size: 0.9em; }
-.dealer-badge {
-    background: #fff;
-    color: #000;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7em;
-    font-weight: bold;
-    margin-left: 6px;
+/* ===== Base ===== */
+
+body {
+    background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    min-height: 100vh;
+    color: #eee;
+    margin: 0;
 }
 
-.winner-box {
-    background: #d4edda;
-    border-left: 4px solid #28a745;
-    padding: 10px;
-    margin-top: 12px;
-    font-weight: bold;
+h1, h2, h3, h4, p {
+    color: #eee;
 }
+
+/* ===== Cabeçalho da mão ===== */
+
+.hand-header {
+    max-width: 1400px;
+    margin: 16px auto 8px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.summary {
+    color: #ccc;
+}
+
+/* ===== Layout: mesa | sugestão da IA ===== */
+
+.replay-layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px 40px;
+    box-sizing: border-box;
+}
+
+.table-column {
+    flex: 2 1 600px;
+    min-width: 0;
+}
+
+.coach-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    position: sticky;
+    top: 16px;
+    box-sizing: border-box;
+}
+
+.coach-sidebar h4 {
+    margin-top: 0;
+}
+
+.no-analysis {
+    color: #999;
+    font-style: italic;
+}
+
+.coach-box {
+    background: #2a2a2a;
+    border-left: 4px solid #888;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.coach-box.eval-mistake { border-left-color: #dc3545; }
+.coach-box.eval-inaccurate { border-left-color: #d39e00; }
+.coach-box.eval-good { border-left-color: #28a745; }
+
+.eval-tag {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    margin-bottom: 4px;
+}
+
+.suggestion {
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+/* ===== Indicador de street (alinhado com a mesa) ===== */
 
 .street-tracker {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
 }
 
 .street-pill {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ccc;
+    background: rgba(255, 255, 255, 0.1);
+    color: #999;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 0.8em;
@@ -55,4 +112,177 @@
 .street-pill.active {
     background: gold;
     color: #000;
+}
+
+/* ===== Mesa ===== */
+
+.poker-table {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    aspect-ratio: 1.5 / 1;
+    margin: 20px auto;
+}
+
+.table-felt {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, #1b7a4d 0%, #0b5c38 70%, #06371f 100%);
+    border: 10px solid #5b3a1e;
+    border-radius: 50%;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.board {
+    display: flex;
+    gap: 4px;
+    min-height: 32px;
+}
+
+.board-placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.pot-display {
+    color: gold;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.seat-pos {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seat {
+    background: #16213e;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.seat.folded {
+    opacity: 0.3;
+}
+
+.seat.acting {
+    border-color: gold;
+    box-shadow: 0 0 12px gold;
+}
+
+.seat-name {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.seat-stack {
+    font-size: 0.75em;
+    color: #ccc;
+}
+
+.seat-action {
+    font-size: 0.75em;
+    font-weight: bold;
+    color: gold;
+    margin-bottom: 2px;
+}
+
+.dealer-badge {
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65em;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.card {
+    display: inline-block;
+    background: #fff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-weight: bold;
+    color: #000;
+    font-size: 1.1em;
+}
+
+.hero-cards {
+    margin-top: 6px;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+/* ===== Vencedor ===== */
+
+.winner-box {
+    background: #1e3d2b;
+    border-left: 4px solid #28a745;
+    padding: 10px;
+    margin-top: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #7ee08a;
+    border-radius: 6px;
+}
+
+/* ===== Controles ===== */
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+/* ===== Histórico discreto ===== */
+
+.history-collapsed {
+    margin-top: 16px;
+    color: #ccc;
+}
+
+.history-collapsed summary {
+    cursor: pointer;
+    font-size: 0.85em;
+    color: #999;
+    padding: 4px 0;
+}
+
+.history-collapsed .action-log {
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.8em;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 6px;
+}
+
+/* ===== Responsivo ===== */
+
+@media (max-width: 1100px) {
+    .coach-sidebar {
+        width: 100%;
+        position: static;
+    }
 }

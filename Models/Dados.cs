@@ -61,6 +61,8 @@ public class TimelineEvent
     public decimal? Amount { get; set; }
     public List<Card>? Cards { get; set; }
     public HeroAnalysis? HeroAnalysis { get; set; }
+    public string? Winner { get; set; }   
+    public decimal? Pot { get; set; }     
 }
 
 public class Card

@@ -9,102 +9,2322 @@
   },
   "NotableHands": [
     {
-      "HandIndexInFile": 3,
-      "HandId": "260986349304",
-      "LearningTheme": "Agressividade no Flop / Proteção de Mão",
-      "CoachSummary": "Você jogou bem o pré-flop, mas perdeu valor e controle da iniciativa ao dar check num flop seco no qual deveria aplicar uma continuation bet.",
-      "Level": {
-        "Name": "II",
-        "SmallBlind": 15,
-        "BigBlind": 30,
-        "Ante": 4
-      },
-      "InitialTableState": {
-        "MaxSeats": 8,
-        "ButtonSeat": 5,
-        "Seats": [
-          { "SeatNumber": 1, "PlayerName": "KKPINAKK", "InitialStack": 3500, "IsHero": false },
-          { "SeatNumber": 2, "PlayerName": "DarrylSibeon", "InitialStack": 1200, "IsHero": false },
-          { "SeatNumber": 5, "PlayerName": "775170", "InitialStack": 1444, "IsHero": true },
-          { "SeatNumber": 7, "PlayerName": "Villain3", "InitialStack": 2100, "IsHero": false }
-        ]
-      },
-      "TimelineEvents": [
-        { "EventId": 1, "EventType": "PostAnte", "PlayerName": "KKPINAKK", "Amount": 4 },
-        { "EventId": 2, "EventType": "PostAnte", "PlayerName": "DarrylSibeon", "Amount": 4 },
-        { "EventId": 3, "EventType": "PostAnte", "PlayerName": "775170", "Amount": 4 },
-        { "EventId": 4, "EventType": "PostAnte", "PlayerName": "Villain3", "Amount": 4 },
-        { "EventId": 5, "EventType": "PostSmallBlind", "PlayerName": "Villain3", "Amount": 15 },
-        { "EventId": 6, "EventType": "PostBigBlind", "PlayerName": "KKPINAKK", "Amount": 30 },
-        { "EventId": 7, "EventType": "DealHoleCards", "PlayerName": "775170", "Cards": [{"Rank": "T", "Suit": "c"}, {"Rank": "T", "Suit": "s"}] },
-        { "EventId": 8, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "DarrylSibeon", "IsHero": false, "Action": "Fold" },
-        { "EventId": 9, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "775170", "IsHero": true, "Action": "Raise", "Amount": 60 },
-        { "EventId": 10, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "Villain3", "IsHero": false, "Action": "Fold" },
-        { "EventId": 11, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "KKPINAKK", "IsHero": false, "Action": "Call", "Amount": 30 },
-        { "EventId": 12, "EventType": "DealBoard", "Street": "Flop", "Cards": [{"Rank": "K", "Suit": "s"}, {"Rank": "K", "Suit": "c"}, {"Rank": "6", "Suit": "h"}] },
-        { "EventId": 13, "EventType": "PlayerAction", "Street": "Flop", "PlayerName": "KKPINAKK", "IsHero": false, "Action": "Check" },
-        { 
-          "EventId": 14, 
-          "EventType": "PlayerAction", 
-          "Street": "Flop", 
-          "PlayerName": "775170", 
-          "IsHero": true, 
-          "Action": "Check", 
-          "HeroAnalysis": {
-            "IsKeyDecision": true,
-            "Evaluation": "Mistake",
-            "Commentary": "Aqui o check é um erro estratégico. O board é dobrado de Reis e seco, e você tem o par médio da mesa. Dar check perde valor contra mãos piores que pagariam e permite que o vilão realize equidade de graça.",
-            "SuggestedAction": "Bet",
-            "SuggestedAmount": 45
-          }
-        }
-      ]
+    "HandIndexInFile": 3,
+    "HandId": "260986294339",
+    "LearningTheme": "Top Pair e Extração de Valor",
+    "CoachSummary": "Você tomou a iniciativa com KJo, acertou top pair e continuou extraindo valor no flop e no turn. A linha foi agressiva na medida certa para micro stakes.",
+    "Level": {
+    "Name": "I",
+    "SmallBlind": 10,
+    "BigBlind": 20,
+    "Ante": 3
+    },
+    "InitialTableState": {
+    "MaxSeats": 8,
+    "ButtonSeat": 4,
+    "Seats": [
+    {
+    "SeatNumber": 2,
+    "PlayerName": "arcticdog360",
+    "InitialStack": 1261,
+    "IsHero": false
     },
     {
-      "HandIndexInFile": 7,
-      "HandId": "260986349312",
-      "LearningTheme": "Defesa de Blinds / Ajuste contra 3-Bet",
-      "CoachSummary": "Defesa incorreta fora de posição no pré-flop com uma mão dominada diante de um oponente tight.",
+    "SeatNumber": 3,
+    "PlayerName": "gauderiocwb",
+    "InitialStack": 1500,
+    "IsHero": false
+    },
+    {
+    "SeatNumber": 4,
+    "PlayerName": "KKPINAKK",
+    "InitialStack": 1464,
+    "IsHero": false
+    },
+    {
+    "SeatNumber": 6,
+    "PlayerName": "iinso",
+    "InitialStack": 1414,
+    "IsHero": false
+    },
+    {
+    "SeatNumber": 7,
+    "PlayerName": "DarrylSibeon",
+    "InitialStack": 3490,
+    "IsHero": false
+    },
+    {
+    "SeatNumber": 8,
+    "PlayerName": "775170",
+    "InitialStack": 1434,
+    "IsHero": true
+    }
+    ]
+    },
+    "TimelineEvents": [
+    {
+    "EventId": 9,
+    "EventType": "DealHoleCards",
+    "PlayerName": "775170",
+    "Cards": [
+    {
+    "Rank": "K",
+    "Suit": "d"
+    },
+    {
+    "Rank": "J",
+    "Suit": "d"
+    }
+    ]
+    },
+    {
+    "EventId": 10,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "775170",
+    "IsHero": true,
+    "Action": "Raise",
+    "Amount": 40,
+    "HeroAnalysis": {
+    "IsKeyDecision": true,
+    "Evaluation": "Good",
+    "Commentary": "KJo suited é uma mão que pode abrir agressivamente em stacks iniciais. O raise para 40 mantém a iniciativa e constrói um pote que pode ser capturado com valor quando você acertar o board."
+    }
+    },
+    {
+    "EventId": 11,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "arcticdog360",
+    "IsHero": false,
+    "Action": "Fold"
+    },
+    {
+    "EventId": 12,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "gauderiocwb",
+    "IsHero": false,
+    "Action": "Fold"
+    },
+    {
+    "EventId": 13,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "KKPINAKK",
+    "IsHero": false,
+    "Action": "Fold"
+    },
+    {
+    "EventId": 14,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "iinso",
+    "IsHero": false,
+    "Action": "Call",
+    "Amount": 30
+    },
+    {
+    "EventId": 15,
+    "EventType": "PlayerAction",
+    "Street": "Preflop",
+    "PlayerName": "DarrylSibeon",
+    "IsHero": false,
+    "Action": "Fold"
+    },
+    {
+    "EventId": 16,
+    "EventType": "DealBoard",
+    "Street": "Flop",
+    "Cards": [
+    {
+    "Rank": "K",
+    "Suit": "s"
+    },
+    {
+    "Rank": "9",
+    "Suit": "d"
+    },
+    {
+    "Rank": "2",
+    "Suit": "s"
+    }
+    ]
+    },
+    {
+    "EventId": 17,
+    "EventType": "PlayerStatus",
+    "PlayerName": "luis domi",
+    "Status": "Disconnected"
+    },
+    {
+    "EventId": 18,
+    "EventType": "PlayerAction",
+    "Street": "Flop",
+    "PlayerName": "iinso",
+    "IsHero": false,
+    "Action": "Check"
+    },
+    {
+    "EventId": 19,
+    "EventType": "PlayerAction",
+    "Street": "Flop",
+    "PlayerName": "775170",
+    "IsHero": true,
+    "Action": "Bet",
+    "Amount": 39,
+    "HeroAnalysis": {
+    "IsKeyDecision": true,
+    "Evaluation": "Optimal",
+    "Commentary": "Você acertou top pair em K-9-2. O bet de 39 em um pote de aproximadamente 101 é um bom sizing de valor: cobra pares inferiores, draws de espadas e mãos como 9x sem precisar inflar excessivamente o pote."
+    }
+    },
+    {
+    "EventId": 20,
+    "EventType": "PlayerAction",
+    "Street": "Flop",
+    "PlayerName": "iinso",
+    "IsHero": false,
+    "Action": "Call",
+    "Amount": 39
+    },
+    {
+    "EventId": 21,
+    "EventType": "DealBoard",
+    "Street": "Turn",
+    "Cards": [
+    {
+    "Rank": "J",
+    "Suit": "c"
+    }
+    ]
+    },
+    {
+    "EventId": 22,
+    "EventType": "PlayerAction",
+    "Street": "Turn",
+    "PlayerName": "iinso",
+    "IsHero": false,
+    "Action": "Check"
+    },
+    {
+    "EventId": 23,
+    "EventType": "PlayerAction",
+    "Street": "Turn",
+    "PlayerName": "775170",
+    "IsHero": true,
+    "Action": "Bet",
+    "Amount": 98,
+    "HeroAnalysis": {
+    "IsKeyDecision": true,
+    "Evaluation": "Optimal",
+    "Commentary": "O J melhora sua mão para dois pares. Depois do check do adversário, continuar apostando 98 extrai valor de Kx, 9x e possíveis draws. Em micro stakes, quando sua mão melhora e ainda existem mãos piores capazes de pagar, o foco deve ser valor."
+    }
+    },
+    {
+    "EventId": 24,
+    "EventType": "PlayerAction",
+    "Street": "Turn",
+    "PlayerName": "iinso",
+    "IsHero": false,
+    "Action": "Fold"
+    },
+    {
+    "EventId": 25,
+    "EventType": "UncalledBetReturned",
+    "PlayerName": "775170",
+    "Amount": 98
+    },
+    {
+    "EventId": 26,
+    "EventType": "PotAwarded",
+    "PlayerName": "775170",
+    "Amount": 196
+    }
+    ]
+    },
+     {
+     "HandIndexInFile": 12,
+     "HandId": "260986349304",
+     "LearningTheme": "Pocket Pair e Thin Value",
+     "CoachSummary": "TT é uma mão forte pré-flop, mas o call permitiu um pote multiway. Depois, você extraiu valor corretamente no turn, porém perdeu uma oportunidade pequena de valor no river.",
+     "Level": {
+     "Name": "II",
+     "SmallBlind": 15,
+     "BigBlind": 30,
+     "Ante": 4
+     },
+     "InitialTableState": {
+     "MaxSeats": 8,
+     "ButtonSeat": 1,
+     "Seats": [
+     {
+     "SeatNumber": 1,
+     "PlayerName": "satorihanzo89",
+     "InitialStack": 1435,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 2,
+     "PlayerName": "arcticdog360",
+     "InitialStack": 1421,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 3,
+     "PlayerName": "TAREMH",
+     "InitialStack": 1683,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 4,
+     "PlayerName": "KKPINAKK",
+     "InitialStack": 1512,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 6,
+     "PlayerName": "iinso",
+     "InitialStack": 1198,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 7,
+     "PlayerName": "DarrylSibeon",
+     "InitialStack": 3428,
+     "IsHero": false
+     },
+     {
+     "SeatNumber": 8,
+     "PlayerName": "775170",
+     "InitialStack": 1444,
+     "IsHero": true
+     }
+     ]
+     },
+     "TimelineEvents": [
+     {
+     "EventId": 1,
+     "EventType": "PostAnte",
+     "PlayerName": "satorihanzo89",
+     "Amount": 4
+     },
+     {
+     "EventId": 2,
+     "EventType": "PostAnte",
+     "PlayerName": "arcticdog360",
+     "Amount": 4
+     },
+     {
+     "EventId": 3,
+     "EventType": "PostAnte",
+     "PlayerName": "TAREMH",
+     "Amount": 4
+     },
+     {
+     "EventId": 4,
+     "EventType": "PostAnte",
+     "PlayerName": "KKPINAKK",
+     "Amount": 4
+     },
+     {
+     "EventId": 5,
+     "EventType": "PostAnte",
+     "PlayerName": "iinso",
+     "Amount": 4
+     },
+     {
+     "EventId": 6,
+     "EventType": "PostAnte",
+     "PlayerName": "DarrylSibeon",
+     "Amount": 4
+     },
+     {
+     "EventId": 7,
+     "EventType": "PostAnte",
+     "PlayerName": "775170",
+     "Amount": 4
+     },
+     {
+     "EventId": 8,
+     "EventType": "PostSmallBlind",
+     "PlayerName": "arcticdog360",
+     "Amount": 15
+     },
+     {
+     "EventId": 9,
+     "EventType": "PostBigBlind",
+     "PlayerName": "TAREMH",
+     "Amount": 30
+     },
+     {
+     "EventId": 10,
+     "EventType": "DealHoleCards",
+     "PlayerName": "775170",
+     "Cards": [
+     {
+     "Rank": "T",
+     "Suit": "c"
+     },
+     {
+     "Rank": "T",
+     "Suit": "s"
+     }
+     ]
+     },
+     {
+     "EventId": 11,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "KKPINAKK",
+     "IsHero": false,
+     "Action": "Raise",
+     "Amount": 60
+     },
+     {
+     "EventId": 12,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "iinso",
+     "IsHero": false,
+     "Action": "Fold"
+     },
+     {
+     "EventId": 13,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "DarrylSibeon",
+     "IsHero": false,
+     "Action": "Call",
+     "Amount": 60
+     },
+     {
+     "EventId": 14,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "775170",
+     "IsHero": true,
+     "Action": "Call",
+     "Amount": 60,
+     "HeroAnalysis": {
+     "IsKeyDecision": true,
+     "Evaluation": "Inaccurate",
+     "Commentary": "TT é suficientemente forte para considerar uma 3-bet por valor depois de um raise e um cold call. O call não é um erro grave, mas deixa o pote multiway e permite que mais jogadores realizem equity. Uma 3-bet também simplifica a tomada de decisão pós-flop.",
+     "SuggestedAction": "Raise",
+     "SuggestedAmount": 240
+     }
+     },
+     {
+     "EventId": 15,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "satorihanzo89",
+     "IsHero": false,
+     "Action": "Fold"
+     },
+     {
+     "EventId": 16,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "arcticdog360",
+     "IsHero": false,
+     "Action": "Fold"
+     },
+     {
+     "EventId": 17,
+     "EventType": "PlayerAction",
+     "Street": "Preflop",
+     "PlayerName": "TAREMH",
+     "IsHero": false,
+     "Action": "Fold"
+     },
+     {
+     "EventId": 18,
+     "EventType": "DealBoard",
+     "Street": "Flop",
+     "Cards": [
+     {
+     "Rank": "K",
+     "Suit": "s"
+     },
+     {
+     "Rank": "K",
+     "Suit": "c"
+     },
+     {
+     "Rank": "6",
+     "Suit": "h"
+     }
+     ]
+     },
+     {
+     "EventId": 19,
+     "EventType": "PlayerAction",
+     "Street": "Flop",
+     "PlayerName": "KKPINAKK",
+     "IsHero": false,
+     "Action": "Check"
+     },
+     {
+     "EventId": 20,
+     "EventType": "PlayerAction",
+     "Street": "Flop",
+     "PlayerName": "DarrylSibeon",
+     "IsHero": false,
+     "Action": "Bet",
+     "Amount": 60
+     },
+     {
+     "EventId": 21,
+     "EventType": "PlayerAction",
+     "Street": "Flop",
+     "PlayerName": "775170",
+     "IsHero": true,
+     "Action": "Call",
+     "Amount": 60,
+     "HeroAnalysis": {
+     "IsKeyDecision": true,
+     "Evaluation": "Good",
+     "Commentary": "Em K-K-6, o call preserva blefes e mãos como pares médios. Raisar teria o risco de expulsar exatamente as mãos piores que você quer manter no pote."
+     }
+     },
+     {
+     "EventId": 22,
+     "EventType": "PlayerAction",
+     "Street": "Flop",
+     "PlayerName": "KKPINAKK",
+     "IsHero": false,
+     "Action": "Fold"
+     },
+     {
+     "EventId": 23,
+     "EventType": "DealBoard",
+     "Street": "Turn",
+     "Cards": [
+     {
+     "Rank": "J",
+     "Suit": "s"
+     }
+     ]
+     },
+     {
+     "EventId": 24,
+     "EventType": "PlayerAction",
+     "Street": "Turn",
+     "PlayerName": "DarrylSibeon",
+     "IsHero": false,
+     "Action": "Check"
+     },
+     {
+     "EventId": 25,
+     "EventType": "PlayerAction",
+     "Street": "Turn",
+     "PlayerName": "775170",
+     "IsHero": true,
+     "Action": "Bet",
+     "Amount": 187,
+     "HeroAnalysis": {
+     "IsKeyDecision": true,
+     "Evaluation": "Optimal",
+     "Commentary": "O check adversário no turn é um convite para extração de valor. TT ainda vence 6x e pares menores, e 187 é um sizing suficientemente grande para cobrar sem comprometer desnecessariamente todo o stack."
+     }
+     },
+     {
+     "EventId": 26,
+     "EventType": "PlayerAction",
+     "Street": "Turn",
+     "PlayerName": "DarrylSibeon",
+     "IsHero": false,
+     "Action": "Call",
+     "Amount": 187
+     },
+     {
+     "EventId": 27,
+     "EventType": "DealBoard",
+     "Street": "River",
+     "Cards": [
+     {
+     "Rank": "4",
+     "Suit": "s"
+     }
+     ]
+     },
+     {
+     "EventId": 28,
+     "EventType": "PlayerAction",
+     "Street": "River",
+     "PlayerName": "DarrylSibeon",
+     "IsHero": false,
+     "Action": "Check"
+     },
+     {
+     "EventId": 29,
+     "EventType": "PlayerAction",
+     "Street": "River",
+     "PlayerName": "775170",
+     "IsHero": true,
+     "Action": "Check",
+     "HeroAnalysis": {
+     "IsKeyDecision": true,
+     "Evaluation": "Inaccurate",
+     "Commentary": "O check evita construir um pote maior, mas deixa dinheiro na mesa. O 4 não representa uma grande mudança de textura, e mãos como 6x ainda podem pagar uma aposta pequena. Em micro stakes, priorize thin value quando o range adversário contém mãos piores que chegam ao river.",
+     "SuggestedAction": "Bet",
+     "SuggestedAmount": 150
+     }
+     },
+     {
+     "EventId": 30,
+     "EventType": "Showdown",
+     "PlayerName": "DarrylSibeon",
+     "Cards": [
+     {
+     "Rank": "7",
+     "Suit": "s"
+     },
+     {
+     "Rank": "6",
+     "Suit": "c"
+     }
+     ],
+     "HandDescription": "two pair, Kings and Sixes"
+     },
+     {
+     "EventId": 31,
+     "EventType": "Showdown",
+     "PlayerName": "775170",
+     "Cards": [
+     {
+     "Rank": "T",
+     "Suit": "c"
+     },
+     {
+     "Rank": "T",
+     "Suit": "s"
+     }
+     ],
+     "HandDescription": "two pair, Kings and Tens"
+     },
+     {
+     "EventId": 32,
+     "EventType": "PotAwarded",
+     "PlayerName": "775170",
+     "Amount": 747
+     }
+     ]
+     },
+      {
+      "HandIndexInFile": 16,
+      "HandId": "260986378377",
+      "LearningTheme": "Defesa de Blind e Disciplina no Turn",
+      "CoachSummary": "Você defendeu corretamente uma mão razoável contra min-raise, acertou top pair e abandonou quando o Ás no turn aumentou bastante a força relativa do range adversário.",
       "Level": {
-        "Name": "II",
-        "SmallBlind": 15,
-        "BigBlind": 30,
-        "Ante": 4
+      "Name": "III",
+      "SmallBlind": 25,
+      "BigBlind": 50,
+      "Ante": 6
       },
       "InitialTableState": {
+      "MaxSeats": 8,
+      "ButtonSeat": 6,
+      "Seats": [
+      {
+      "SeatNumber": 1,
+      "PlayerName": "satorihanzo89",
+      "InitialStack": 1415,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 2,
+      "PlayerName": "arcticdog360",
+      "InitialStack": 1236,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 3,
+      "PlayerName": "TAREMH",
+      "InitialStack": 1453,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 4,
+      "PlayerName": "KKPINAKK",
+      "InitialStack": 1794,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 6,
+      "PlayerName": "iinso",
+      "InitialStack": 1016,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 7,
+      "PlayerName": "DarrylSibeon",
+      "InitialStack": 3343,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 8,
+      "PlayerName": "775170",
+      "InitialStack": 1864,
+      "IsHero": true
+      }
+      ]
+      },
+      "TimelineEvents": [
+      {
+      "EventId": 1,
+      "EventType": "PostAnte",
+      "PlayerName": "satorihanzo89",
+      "Amount": 6
+      },
+      {
+      "EventId": 2,
+      "EventType": "PostAnte",
+      "PlayerName": "arcticdog360",
+      "Amount": 6
+      },
+      {
+      "EventId": 3,
+      "EventType": "PostAnte",
+      "PlayerName": "TAREMH",
+      "Amount": 6
+      },
+      {
+      "EventId": 4,
+      "EventType": "PostAnte",
+      "PlayerName": "KKPINAKK",
+      "Amount": 6
+      },
+      {
+      "EventId": 5,
+      "EventType": "PostAnte",
+      "PlayerName": "iinso",
+      "Amount": 6
+      },
+      {
+      "EventId": 6,
+      "EventType": "PostAnte",
+      "PlayerName": "DarrylSibeon",
+      "Amount": 6
+      },
+      {
+      "EventId": 7,
+      "EventType": "PostAnte",
+      "PlayerName": "775170",
+      "Amount": 6
+      },
+      {
+      "EventId": 8,
+      "EventType": "PostSmallBlind",
+      "PlayerName": "DarrylSibeon",
+      "Amount": 25
+      },
+      {
+      "EventId": 9,
+      "EventType": "PostBigBlind",
+      "PlayerName": "775170",
+      "Amount": 50
+      },
+      {
+      "EventId": 10,
+      "EventType": "DealHoleCards",
+      "PlayerName": "775170",
+      "Cards": [
+      {
+      "Rank": "Q",
+      "Suit": "c"
+      },
+      {
+      "Rank": "9",
+      "Suit": "d"
+      }
+      ]
+      },
+      {
+      "EventId": 11,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "satorihanzo89",
+      "IsHero": false,
+      "Action": "Raise",
+      "Amount": 100
+      },
+      {
+      "EventId": 12,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "arcticdog360",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 13,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "TAREMH",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 14,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "KKPINAKK",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 15,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "iinso",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 16,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "DarrylSibeon",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 17,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Call",
+      "Amount": 50,
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Good",
+      "Commentary": "Q9o pode defender contra um min-raise no big blind porque o preço é baixo e a mão tem jogabilidade suficiente heads-up."
+      }
+      },
+      {
+      "EventId": 18,
+      "EventType": "DealBoard",
+      "Street": "Flop",
+      "Cards": [
+      {
+      "Rank": "9",
+      "Suit": "s"
+      },
+      {
+      "Rank": "8",
+      "Suit": "c"
+      },
+      {
+      "Rank": "8",
+      "Suit": "d"
+      }
+      ]
+      },
+      {
+      "EventId": 19,
+      "EventType": "PlayerAction",
+      "Street": "Flop",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Check",
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Optimal",
+      "Commentary": "No flop 9-8-8 você não precisa liderar. O agressor pré-flop mantém iniciativa e o board pareado reduz a necessidade de proteção imediata."
+      }
+      },
+      {
+      "EventId": 20,
+      "EventType": "PlayerAction",
+      "Street": "Flop",
+      "PlayerName": "satorihanzo89",
+      "IsHero": false,
+      "Action": "Bet",
+      "Amount": 134
+      },
+      {
+      "EventId": 21,
+      "EventType": "PlayerAction",
+      "Street": "Flop",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Call",
+      "Amount": 134,
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Good",
+      "Commentary": "Com top pair, o call mantém o range adversário amplo e evita isolar você contra as mãos fortes. Sua mão tem showdown value suficiente para continuar."
+      }
+      },
+      {
+      "EventId": 22,
+      "EventType": "DealBoard",
+      "Street": "Turn",
+      "Cards": [
+      {
+      "Rank": "A",
+      "Suit": "s"
+      }
+      ]
+      },
+      {
+      "EventId": 23,
+      "EventType": "PlayerAction",
+      "Street": "Turn",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Check",
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Optimal",
+      "Commentary": "O Ás é uma scare card para Q9 porque melhora várias mãos do range do raiser. O check controla o pote e permite avaliar a próxima ação."
+      }
+      },
+      {
+      "EventId": 24,
+      "EventType": "PlayerAction",
+      "Street": "Turn",
+      "PlayerName": "satorihanzo89",
+      "IsHero": false,
+      "Action": "Bet",
+      "Amount": 268
+      },
+      {
+      "EventId": 25,
+      "EventType": "PlayerAction",
+      "Street": "Turn",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Fold",
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Good",
+      "Commentary": "Depois do segundo barrel de 268, o fold é disciplinado. O Ás favorece o range do agressor e, em micro stakes, não existe necessidade de transformar uma mão de um par em um bluff-catcher contra uma linha forte sem leitura de blefe excessivo."
+      }
+      },
+      {
+      "EventId": 26,
+      "EventType": "UncalledBetReturned",
+      "PlayerName": "satorihanzo89",
+      "Amount": 268
+      }
+      ]
+      },
+      {
+      "HandIndexInFile": 33,
+      "HandId": "260986468916",
+      "LearningTheme": "Short Stack e 3-Bet Jam",
+      "CoachSummary": "KQs com menos de 10 BB é uma excelente mão para colocar o stack em jogo pré-flop e maximizar fold equity.",
+      "Level": {
+      "Name": "V",
+      "SmallBlind": 60,
+      "BigBlind": 120,
+      "Ante": 15
+      },
+      "InitialTableState": {
+      "MaxSeats": 8,
+      "ButtonSeat": 4,
+      "Seats": [
+      {
+      "SeatNumber": 1,
+      "PlayerName": "775170",
+      "InitialStack": 1112,
+      "IsHero": true
+      },
+      {
+      "SeatNumber": 2,
+      "PlayerName": "djoel08",
+      "InitialStack": 2357,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 4,
+      "PlayerName": "arcticdog360",
+      "InitialStack": 3984,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 5,
+      "PlayerName": "2010jucator",
+      "InitialStack": 1202,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 6,
+      "PlayerName": "heinz_ward71",
+      "InitialStack": 2765,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 7,
+      "PlayerName": "3 BET Oll-in",
+      "InitialStack": 3130,
+      "IsHero": false
+      },
+      {
+      "SeatNumber": 8,
+      "PlayerName": "golongerdad",
+      "InitialStack": 6688,
+      "IsHero": false
+      }
+      ]
+      },
+      "TimelineEvents": [
+      {
+      "EventId": 1,
+      "EventType": "PostAnte",
+      "PlayerName": "775170",
+      "Amount": 15
+      },
+      {
+      "EventId": 2,
+      "EventType": "PostAnte",
+      "PlayerName": "djoel08",
+      "Amount": 15
+      },
+      {
+      "EventId": 3,
+      "EventType": "PostAnte",
+      "PlayerName": "arcticdog360",
+      "Amount": 15
+      },
+      {
+      "EventId": 4,
+      "EventType": "PostAnte",
+      "PlayerName": "2010jucator",
+      "Amount": 15
+      },
+      {
+      "EventId": 5,
+      "EventType": "PostAnte",
+      "PlayerName": "heinz_ward71",
+      "Amount": 15
+      },
+      {
+      "EventId": 6,
+      "EventType": "PostAnte",
+      "PlayerName": "3 BET Oll-in",
+      "Amount": 15
+      },
+      {
+      "EventId": 7,
+      "EventType": "PostAnte",
+      "PlayerName": "golongerdad",
+      "Amount": 15
+      },
+      {
+      "EventId": 8,
+      "EventType": "PostSmallBlind",
+      "PlayerName": "2010jucator",
+      "Amount": 60
+      },
+      {
+      "EventId": 9,
+      "EventType": "PostBigBlind",
+      "PlayerName": "heinz_ward71",
+      "Amount": 120
+      },
+      {
+      "EventId": 10,
+      "EventType": "DealHoleCards",
+      "PlayerName": "775170",
+      "Cards": [
+      {
+      "Rank": "K",
+      "Suit": "s"
+      },
+      {
+      "Rank": "Q",
+      "Suit": "h"
+      }
+      ]
+      },
+      {
+      "EventId": 11,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "3 BET Oll-in",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 12,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "golongerdad",
+      "IsHero": false,
+      "Action": "Raise",
+      "Amount": 240
+      },
+      {
+      "EventId": 13,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "775170",
+      "IsHero": true,
+      "Action": "Raise",
+      "Amount": 1097,
+      "AllIn": true,
+      "HeroAnalysis": {
+      "IsKeyDecision": true,
+      "Evaluation": "Optimal",
+      "Commentary": "Com apenas 9,3 BB, o shove com KQs maximiza fold equity e evita decisões pós-flop com stack muito curto. A mão também possui ótima equity quando recebe call. Essa é exatamente a situação em que você deve preferir agressão direta."
+      }
+      },
+      {
+      "EventId": 14,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "djoel08",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 15,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "arcticdog360",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 16,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "2010jucator",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 17,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "heinz_ward71",
+      "IsHero": false,
+      "Action": "Fold"
+      },
+      {
+      "EventId": 18,
+      "EventType": "PlayerAction",
+      "Street": "Preflop",
+      "PlayerName": "golongerdad",
+      "IsHero": false,
+      "Action": "Call",
+      "Amount": 857
+      },
+      {
+      "EventId": 19,
+      "EventType": "DealBoard",
+      "Street": "Flop",
+      "Cards": [
+      {
+      "Rank": "J",
+      "Suit": "d"
+      },
+      {
+      "Rank": "9",
+      "Suit": "d"
+      },
+      {
+      "Rank": "Q",
+      "Suit": "c"
+      }
+      ]
+      },
+      {
+      "EventId": 20,
+      "EventType": "DealBoard",
+      "Street": "Turn",
+      "Cards": [
+      {
+      "Rank": "3",
+      "Suit": "c"
+      }
+      ]
+      },
+      {
+      "EventId": 21,
+      "EventType": "DealBoard",
+      "Street": "River",
+      "Cards": [
+      {
+      "Rank": "K",
+      "Suit": "c"
+      }
+      ]
+      },
+      {
+      "EventId": 22,
+      "EventType": "Showdown",
+      "PlayerName": "golongerdad",
+      "Cards": [
+      {
+      "Rank": "9",
+      "Suit": "h"
+      },
+      {
+      "Rank": "A",
+      "Suit": "c"
+      }
+      ],
+      "HandDescription": "a pair of Nines"
+      },
+      {
+      "EventId": 23,
+      "EventType": "Showdown",
+      "PlayerName": "775170",
+      "Cards": [
+      {
+      "Rank": "K",
+      "Suit": "s"
+      },
+      {
+      "Rank": "Q",
+      "Suit": "h"
+      }
+      ],
+      "HandDescription": "two pair, Kings and Queens"
+      },
+      {
+      "EventId": 24,
+      "EventType": "PotAwarded",
+      "PlayerName": "775170",
+      "Amount": 2479
+      }
+      ]
+      },
+       {
+       "HandIndexInFile": 38,
+       "HandId": "260986490706",
+       "LearningTheme": "Short Stack e 3-Bet Jam com Par",
+       "CoachSummary": "66 com cerca de 13,5 BB é uma mão excelente para simplificar a decisão pré-flop através do shove.",
+       "Level": {
+       "Name": "VI",
+       "SmallBlind": 80,
+       "BigBlind": 160,
+       "Ante": 20
+       },
+       "InitialTableState": {
+       "MaxSeats": 8,
+       "ButtonSeat": 1,
+       "Seats": [
+       {
+       "SeatNumber": 1,
+       "PlayerName": "775170",
+       "InitialStack": 2169,
+       "IsHero": true
+       },
+       {
+       "SeatNumber": 2,
+       "PlayerName": "djoel08",
+       "InitialStack": 1872,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 4,
+       "PlayerName": "arcticdog360",
+       "InitialStack": 8623,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 5,
+       "PlayerName": "2010jucator",
+       "InitialStack": 1342,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 6,
+       "PlayerName": "heinz_ward71",
+       "InitialStack": 2500,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 7,
+       "PlayerName": "3 BET Oll-in",
+       "InitialStack": 3245,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 8,
+       "PlayerName": "golongerdad",
+       "InitialStack": 1487,
+       "IsHero": false
+       }
+       ]
+       },
+       "TimelineEvents": [
+       {
+       "EventId": 1,
+       "EventType": "PostAnte",
+       "PlayerName": "775170",
+       "Amount": 20
+       },
+       {
+       "EventId": 2,
+       "EventType": "PostAnte",
+       "PlayerName": "djoel08",
+       "Amount": 20
+       },
+       {
+       "EventId": 3,
+       "EventType": "PostAnte",
+       "PlayerName": "arcticdog360",
+       "Amount": 20
+       },
+       {
+       "EventId": 4,
+       "EventType": "PostAnte",
+       "PlayerName": "2010jucator",
+       "Amount": 20
+       },
+       {
+       "EventId": 5,
+       "EventType": "PostAnte",
+       "PlayerName": "heinz_ward71",
+       "Amount": 20
+       },
+       {
+       "EventId": 6,
+       "EventType": "PostAnte",
+       "PlayerName": "3 BET Oll-in",
+       "Amount": 20
+       },
+       {
+       "EventId": 7,
+       "EventType": "PostAnte",
+       "PlayerName": "golongerdad",
+       "Amount": 20
+       },
+       {
+       "EventId": 8,
+       "EventType": "PostSmallBlind",
+       "PlayerName": "djoel08",
+       "Amount": 80
+       },
+       {
+       "EventId": 9,
+       "EventType": "PostBigBlind",
+       "PlayerName": "arcticdog360",
+       "Amount": 160
+       },
+       {
+       "EventId": 10,
+       "EventType": "DealHoleCards",
+       "PlayerName": "775170",
+       "Cards": [
+       {
+       "Rank": "6",
+       "Suit": "s"
+       },
+       {
+       "Rank": "6",
+       "Suit": "d"
+       }
+       ]
+       },
+       {
+       "EventId": 11,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "2010jucator",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 12,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "heinz_ward71",
+       "IsHero": false,
+       "Action": "Raise",
+       "Amount": 400
+       },
+       {
+       "EventId": 13,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "3 BET Oll-in",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 14,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "golongerdad",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 15,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "775170",
+       "IsHero": true,
+       "Action": "Raise",
+       "Amount": 2149,
+       "AllIn": true,
+       "HeroAnalysis": {
+       "IsKeyDecision": true,
+       "Evaluation": "Optimal",
+       "Commentary": "Com aproximadamente 13,5 BB, 66 funciona muito bem como 3-bet shove. Você ganha fold equity contra mãos que abriram apenas para roubar blinds e evita tomar decisões difíceis em boards aleatórios."
+       }
+       },
+       {
+       "EventId": 16,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "djoel08",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 17,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "arcticdog360",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 18,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "heinz_ward71",
+       "IsHero": false,
+       "Action": "Call",
+       "Amount": 1749
+       },
+       {
+       "EventId": 19,
+       "EventType": "DealBoard",
+       "Street": "Flop",
+       "Cards": [
+       {
+       "Rank": "2",
+       "Suit": "d"
+       },
+       {
+       "Rank": "J",
+       "Suit": "c"
+       },
+       {
+       "Rank": "4",
+       "Suit": "h"
+       }
+       ]
+       },
+       {
+       "EventId": 20,
+       "EventType": "DealBoard",
+       "Street": "Turn",
+       "Cards": [
+       {
+       "Rank": "6",
+       "Suit": "h"
+       }
+       ]
+       },
+       {
+       "EventId": 21,
+       "EventType": "DealBoard",
+       "Street": "River",
+       "Cards": [
+       {
+       "Rank": "5",
+       "Suit": "s"
+       }
+       ]
+       },
+       {
+       "EventId": 22,
+       "EventType": "Showdown",
+       "PlayerName": "heinz_ward71",
+       "Cards": [
+       {
+       "Rank": "Q",
+       "Suit": "d"
+       },
+       {
+       "Rank": "Q",
+       "Suit": "h"
+       }
+       ],
+       "HandDescription": "a pair of Queens"
+       },
+       {
+       "EventId": 23,
+       "EventType": "Showdown",
+       "PlayerName": "775170",
+       "Cards": [
+       {
+       "Rank": "6",
+       "Suit": "s"
+       },
+       {
+       "Rank": "6",
+       "Suit": "d"
+       }
+       ],
+       "HandDescription": "three of a kind, Sixes"
+       },
+       {
+       "EventId": 24,
+       "EventType": "PotAwarded",
+       "PlayerName": "775170",
+       "Amount": 4678
+       }
+       ]
+       },
+       {
+       "HandIndexInFile": 41,
+       "HandId": "260986502927",
+       "LearningTheme": "Sizing de 3-Bet com QQ",
+       "CoachSummary": "A mão foi jogada agressivamente e o resultado foi bom, mas o sizing pré-flop poderia ser menor para manter mais mãos dominadas no pote.",
+       "Level": {
+       "Name": "VI",
+       "SmallBlind": 80,
+       "BigBlind": 160,
+       "Ante": 20
+       },
+       "InitialTableState": {
+       "MaxSeats": 8,
+       "ButtonSeat": 7,
+       "Seats": [
+       {
+       "SeatNumber": 1,
+       "PlayerName": "775170",
+       "InitialStack": 4638,
+       "IsHero": true
+       },
+       {
+       "SeatNumber": 2,
+       "PlayerName": "djoel08",
+       "InitialStack": 2112,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 4,
+       "PlayerName": "arcticdog360",
+       "InitialStack": 8323,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 7,
+       "PlayerName": "3 BET Oll-in",
+       "InitialStack": 4738,
+       "IsHero": false
+       },
+       {
+       "SeatNumber": 8,
+       "PlayerName": "golongerdad",
+       "InitialStack": 1427,
+       "IsHero": false
+       }
+       ]
+       },
+       "TimelineEvents": [
+       {
+       "EventId": 1,
+       "EventType": "PostAnte",
+       "PlayerName": "775170",
+       "Amount": 20
+       },
+       {
+       "EventId": 2,
+       "EventType": "PostAnte",
+       "PlayerName": "djoel08",
+       "Amount": 20
+       },
+       {
+       "EventId": 3,
+       "EventType": "PostAnte",
+       "PlayerName": "arcticdog360",
+       "Amount": 20
+       },
+       {
+       "EventId": 4,
+       "EventType": "PostAnte",
+       "PlayerName": "3 BET Oll-in",
+       "Amount": 20
+       },
+       {
+       "EventId": 5,
+       "EventType": "PostAnte",
+       "PlayerName": "golongerdad",
+       "Amount": 20
+       },
+       {
+       "EventId": 6,
+       "EventType": "PostSmallBlind",
+       "PlayerName": "golongerdad",
+       "Amount": 80
+       },
+       {
+       "EventId": 7,
+       "EventType": "PostBigBlind",
+       "PlayerName": "775170",
+       "Amount": 160
+       },
+       {
+       "EventId": 8,
+       "EventType": "DealHoleCards",
+       "PlayerName": "775170",
+       "Cards": [
+       {
+       "Rank": "Q",
+       "Suit": "d"
+       },
+       {
+       "Rank": "Q",
+       "Suit": "c"
+       }
+       ]
+       },
+       {
+       "EventId": 9,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "djoel08",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 10,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "arcticdog360",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 11,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "3 BET Oll-in",
+       "IsHero": false,
+       "Action": "Raise",
+       "Amount": 320
+       },
+       {
+       "EventId": 12,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "golongerdad",
+       "IsHero": false,
+       "Action": "Call",
+       "Amount": 240
+       },
+       {
+       "EventId": 13,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "775170",
+       "IsHero": true,
+       "Action": "Raise",
+       "Amount": 1700,
+       "HeroAnalysis": {
+       "IsKeyDecision": true,
+       "Evaluation": "Inaccurate",
+       "Commentary": "A 3-bet é claramente correta com QQ, mas o sizing de 1700 é excessivo. Com um stack de 4638, essa aposta reduz bastante o espaço pós-flop e faz mãos piores desistirem com frequência. Existe dinheiro morto suficiente para uma 3-bet menor continuar sendo altamente lucrativa.",
+       "SuggestedAction": "Raise",
+       "SuggestedAmount": 1200
+       }
+       },
+       {
+       "EventId": 14,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "3 BET Oll-in",
+       "IsHero": false,
+       "Action": "Call",
+       "Amount": 1380
+       },
+       {
+       "EventId": 15,
+       "EventType": "PlayerAction",
+       "Street": "Preflop",
+       "PlayerName": "golongerdad",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 16,
+       "EventType": "DealBoard",
+       "Street": "Flop",
+       "Cards": [
+       {
+       "Rank": "T",
+       "Suit": "c"
+       },
+       {
+       "Rank": "Q",
+       "Suit": "h"
+       },
+       {
+       "Rank": "3",
+       "Suit": "c"
+       }
+       ]
+       },
+       {
+       "EventId": 17,
+       "EventType": "PlayerAction",
+       "Street": "Flop",
+       "PlayerName": "775170",
+       "IsHero": true,
+       "Action": "Bet",
+       "Amount": 2918,
+       "AllIn": true,
+       "HeroAnalysis": {
+       "IsKeyDecision": true,
+       "Evaluation": "Optimal",
+       "Commentary": "Com top set em Q-T-3 e SPR inferior a 1, o all-in é uma decisão natural. Existem draws e mãos como Tx que podem continuar, então não há benefício em tentar fazer uma jogada sofisticada."
+       }
+       },
+       {
+       "EventId": 18,
+       "EventType": "PlayerAction",
+       "Street": "Flop",
+       "PlayerName": "3 BET Oll-in",
+       "IsHero": false,
+       "Action": "Fold"
+       },
+       {
+       "EventId": 19,
+       "EventType": "UncalledBetReturned",
+       "PlayerName": "775170",
+       "Amount": 2918
+       },
+       {
+       "EventId": 20,
+       "EventType": "PotAwarded",
+       "PlayerName": "775170",
+       "Amount": 3820
+       }
+       ]
+       },
+        {
+        "HandIndexInFile": 44,
+        "HandId": "260986519250",
+        "LearningTheme": "Controle de Pote e Seleção de Blefes",
+        "CoachSummary": "Você aplicou pressão no flop com um draw razoável, mas reconheceu corretamente que o turn reduziu a fold equity e desistiu da agressão.",
+        "Level": {
+        "Name": "VI",
+        "SmallBlind": 80,
+        "BigBlind": 160,
+        "Ante": 20
+        },
+        "InitialTableState": {
         "MaxSeats": 8,
         "ButtonSeat": 2,
         "Seats": [
-          { "SeatNumber": 2, "PlayerName": "DarrylSibeon", "InitialStack": 1140, "IsHero": false },
-          { "SeatNumber": 5, "PlayerName": "775170", "InitialStack": 1380, "IsHero": true },
-          { "SeatNumber": 8, "PlayerName": "ReggieAggro", "InitialStack": 2900, "IsHero": false }
-        ]
-      },
-      "TimelineEvents": [
-        { "EventId": 1, "EventType": "PostAnte", "PlayerName": "DarrylSibeon", "Amount": 4 },
-        { "EventId": 2, "EventType": "PostAnte", "PlayerName": "775170", "Amount": 4 },
-        { "EventId": 3, "EventType": "PostAnte", "PlayerName": "ReggieAggro", "Amount": 4 },
-        { "EventId": 4, "EventType": "PostSmallBlind", "PlayerName": "775170", "Amount": 15 },
-        { "EventId": 5, "EventType": "PostBigBlind", "PlayerName": "ReggieAggro", "Amount": 30 },
-        { "EventId": 6, "EventType": "DealHoleCards", "PlayerName": "775170", "Cards": [{"Rank": "K", "Suit": "h"}, {"Rank": "J", "Suit": "s"}] },
-        { "EventId": 7, "EventType": "PlayerAction", "Street": "Preflop", "PlayerName": "DarrylSibeon", "IsHero": false, "Action": "Raise", "Amount": 75 },
-        { 
-          "EventId": 8, 
-          "EventType": "PlayerAction", 
-          "Street": "Preflop", 
-          "PlayerName": "775170", 
-          "IsHero": true, 
-          "Action": "Call", 
-          "Amount": 60, 
-          "HeroAnalysis": {
-            "IsKeyDecision": true,
-            "Evaluation": "Inaccurate",
-            "Commentary": "Pagar o raise do cutoff do small blind com KJo fora de posição é desfavorável. KJo domina poucos ranges de open raise e você jogará OOP (fora de posição) o pós-flop inteiro. O fold é a opção mais disciplinada.",
-            "SuggestedAction": "Fold",
-            "SuggestedAmount": 0
-          }
+        {
+        "SeatNumber": 1,
+        "PlayerName": "775170",
+        "InitialStack": 6618,
+        "IsHero": true
+        },
+        {
+        "SeatNumber": 2,
+        "PlayerName": "djoel08",
+        "InitialStack": 1812,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 3,
+        "PlayerName": "kanepk",
+        "InitialStack": 1888,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 4,
+        "PlayerName": "arcticdog360",
+        "InitialStack": 8943,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 7,
+        "PlayerName": "3 BET Oll-in",
+        "InitialStack": 3338,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 8,
+        "PlayerName": "golongerdad",
+        "InitialStack": 1047,
+        "IsHero": false
         }
-      ]
-    }
+        ]
+        },
+        "TimelineEvents": [
+        {
+        "EventId": 1,
+        "EventType": "PostAnte",
+        "PlayerName": "775170",
+        "Amount": 20
+        },
+        {
+        "EventId": 2,
+        "EventType": "PostAnte",
+        "PlayerName": "djoel08",
+        "Amount": 20
+        },
+        {
+        "EventId": 3,
+        "EventType": "PostAnte",
+        "PlayerName": "kanepk",
+        "Amount": 20
+        },
+        {
+        "EventId": 4,
+        "EventType": "PostAnte",
+        "PlayerName": "arcticdog360",
+        "Amount": 20
+        },
+        {
+        "EventId": 5,
+        "EventType": "PostAnte",
+        "PlayerName": "3 BET Oll-in",
+        "Amount": 20
+        },
+        {
+        "EventId": 6,
+        "EventType": "PostAnte",
+        "PlayerName": "golongerdad",
+        "Amount": 20
+        },
+        {
+        "EventId": 7,
+        "EventType": "PostSmallBlind",
+        "PlayerName": "kanepk",
+        "Amount": 80
+        },
+        {
+        "EventId": 8,
+        "EventType": "PostBigBlind",
+        "PlayerName": "arcticdog360",
+        "Amount": 160
+        },
+        {
+        "EventId": 9,
+        "EventType": "DealHoleCards",
+        "PlayerName": "775170",
+        "Cards": [
+        {
+        "Rank": "7",
+        "Suit": "h"
+        },
+        {
+        "Rank": "6",
+        "Suit": "h"
+        }
+        ]
+        },
+        {
+        "EventId": 10,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "3 BET Oll-in",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 11,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "golongerdad",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 12,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "775170",
+        "IsHero": true,
+        "Action": "Raise",
+        "Amount": 320,
+        "HeroAnalysis": {
+        "IsKeyDecision": true,
+        "Evaluation": "Good",
+        "Commentary": "76s tem boa jogabilidade e pode ser aberto em posição favorável. O raise de 2 BB mantém o custo baixo e permite ganhar o pote pré-flop ou aplicar pressão pós-flop."
+        }
+        },
+        {
+        "EventId": 13,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "djoel08",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 14,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "kanepk",
+        "IsHero": false,
+        "Action": "Call",
+        "Amount": 240
+        },
+        {
+        "EventId": 15,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Call",
+        "Amount": 160
+        },
+        {
+        "EventId": 16,
+        "EventType": "DealBoard",
+        "Street": "Flop",
+        "Cards": [
+        {
+        "Rank": "T",
+        "Suit": "h"
+        },
+        {
+        "Rank": "Q",
+        "Suit": "c"
+        },
+        {
+        "Rank": "5",
+        "Suit": "d"
+        }
+        ]
+        },
+        {
+        "EventId": 17,
+        "EventType": "PlayerAction",
+        "Street": "Flop",
+        "PlayerName": "kanepk",
+        "IsHero": false,
+        "Action": "Check"
+        },
+        {
+        "EventId": 18,
+        "EventType": "PlayerAction",
+        "Street": "Flop",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Check"
+        },
+        {
+        "EventId": 19,
+        "EventType": "PlayerAction",
+        "Street": "Flop",
+        "PlayerName": "775170",
+        "IsHero": true,
+        "Action": "Bet",
+        "Amount": 380,
+        "HeroAnalysis": {
+        "IsKeyDecision": true,
+        "Evaluation": "Good",
+        "Commentary": "O flop T-Q-5 rainbow é adequado para uma c-bet porque os adversários demonstraram fraqueza com check. O sizing de 380 gera fold equity e permite ganhar o pote sem comprometer uma parcela excessiva do stack."
+        }
+        },
+        {
+        "EventId": 20,
+        "EventType": "PlayerAction",
+        "Street": "Flop",
+        "PlayerName": "kanepk",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 21,
+        "EventType": "PlayerAction",
+        "Street": "Flop",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Call",
+        "Amount": 380
+        },
+        {
+        "EventId": 22,
+        "EventType": "DealBoard",
+        "Street": "Turn",
+        "Cards": [
+        {
+        "Rank": "Q",
+        "Suit": "h"
+        }
+        ]
+        },
+        {
+        "EventId": 23,
+        "EventType": "PlayerAction",
+        "Street": "Turn",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Check"
+        },
+        {
+        "EventId": 24,
+        "EventType": "PlayerAction",
+        "Street": "Turn",
+        "PlayerName": "775170",
+        "IsHero": true,
+        "Action": "Check",
+        "HeroAnalysis": {
+        "IsKeyDecision": true,
+        "Evaluation": "Optimal",
+        "Commentary": "A Q dobrando reduz o valor da sua fold equity porque o range que pagou o flop contém muitas Qx e Tx. O check evita insistir em um segundo barrel pouco convincente."
+        }
+        },
+        {
+        "EventId": 25,
+        "EventType": "DealBoard",
+        "Street": "River",
+        "Cards": [
+        {
+        "Rank": "J",
+        "Suit": "c"
+        }
+        ]
+        },
+        {
+        "EventId": 26,
+        "EventType": "PlayerAction",
+        "Street": "River",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Check"
+        },
+        {
+        "EventId": 27,
+        "EventType": "PlayerAction",
+        "Street": "River",
+        "PlayerName": "775170",
+        "IsHero": true,
+        "Action": "Check",
+        "HeroAnalysis": {
+        "IsKeyDecision": true,
+        "Evaluation": "Optimal",
+        "Commentary": "Sem valor de showdown e depois de o adversário pagar o flop, o check behind é melhor do que transformar um draw perdido em um blefe de baixa qualidade. Em micro stakes, evite blefar river sem uma boa razão para acreditar que o vilão consegue largar mãos suficientes."
+        }
+        },
+        {
+        "EventId": 28,
+        "EventType": "Showdown",
+        "PlayerName": "arcticdog360",
+        "Cards": [
+        {
+        "Rank": "T",
+        "Suit": "c"
+        },
+        {
+        "Rank": "8",
+        "Suit": "d"
+        }
+        ],
+        "HandDescription": "two pair, Queens and Tens"
+        },
+        {
+        "EventId": 29,
+        "EventType": "Showdown",
+        "PlayerName": "775170",
+        "Cards": [
+        {
+        "Rank": "7",
+        "Suit": "h"
+        },
+        {
+        "Rank": "6",
+        "Suit": "h"
+        }
+        ],
+        "HandDescription": "High card"
+        },
+        {
+        "EventId": 30,
+        "EventType": "PotAwarded",
+        "PlayerName": "arcticdog360",
+        "Amount": 1840
+        }
+        ]
+        },
+        {
+        "HandIndexInFile": 54,
+        "HandId": "260986589780",
+        "LearningTheme": "Re-Shove Pré-Flop com A6",
+        "CoachSummary": "A decisão de colocar o stack em jogo contra o shove curto utiliza fold equity e o blocker do Ás. O resultado mostra apenas a variância da situação.",
+        "Level": {
+        "Name": "VIII",
+        "SmallBlind": 150,
+        "BigBlind": 300,
+        "Ante": 35
+        },
+        "InitialTableState": {
+        "MaxSeats": 8,
+        "ButtonSeat": 7,
+        "Seats": [
+        {
+        "SeatNumber": 1,
+        "PlayerName": "775170",
+        "InitialStack": 4353,
+        "IsHero": true
+        },
+        {
+        "SeatNumber": 3,
+        "PlayerName": "kanepk",
+        "InitialStack": 5988,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 4,
+        "PlayerName": "arcticdog360",
+        "InitialStack": 9118,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 6,
+        "PlayerName": "tokigori",
+        "InitialStack": 4654,
+        "IsHero": false
+        },
+        {
+        "SeatNumber": 7,
+        "PlayerName": "3 BET Oll-in",
+        "InitialStack": 1818,
+        "IsHero": false
+        }
+        ]
+        },
+        "TimelineEvents": [
+        {
+        "EventId": 1,
+        "EventType": "PostAnte",
+        "PlayerName": "775170",
+        "Amount": 35
+        },
+        {
+        "EventId": 2,
+        "EventType": "PostAnte",
+        "PlayerName": "kanepk",
+        "Amount": 35
+        },
+        {
+        "EventId": 3,
+        "EventType": "PostAnte",
+        "PlayerName": "arcticdog360",
+        "Amount": 35
+        },
+        {
+        "EventId": 4,
+        "EventType": "PostAnte",
+        "PlayerName": "tokigori",
+        "Amount": 35
+        },
+        {
+        "EventId": 5,
+        "EventType": "PostAnte",
+        "PlayerName": "3 BET Oll-in",
+        "Amount": 35
+        },
+        {
+        "EventId": 6,
+        "EventType": "PostSmallBlind",
+        "PlayerName": "775170",
+        "Amount": 150
+        },
+        {
+        "EventId": 7,
+        "EventType": "PostBigBlind",
+        "PlayerName": "kanepk",
+        "Amount": 300
+        },
+        {
+        "EventId": 8,
+        "EventType": "DealHoleCards",
+        "PlayerName": "775170",
+        "Cards": [
+        {
+        "Rank": "A",
+        "Suit": "c"
+        },
+        {
+        "Rank": "6",
+        "Suit": "s"
+        }
+        ]
+        },
+        {
+        "EventId": 9,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Call",
+        "Amount": 300
+        },
+        {
+        "EventId": 10,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "tokigori",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 11,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "3 BET Oll-in",
+        "IsHero": false,
+        "Action": "Raise",
+        "Amount": 1783,
+        "AllIn": true
+        },
+        {
+        "EventId": 12,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "775170",
+        "IsHero": true,
+        "Action": "Raise",
+        "Amount": 4318,
+        "AllIn": true,
+        "HeroAnalysis": {
+        "IsKeyDecision": true,
+        "Evaluation": "Optimal",
+        "Commentary": "A6 é uma mão adequada para atacar um shove curto depois do limp, principalmente pelo blocker do Ás e pela fold equity contra o range do jogador que deu limp. Quando você recebe um novo shove do big blind, a ação já faz parte da variância da linha escolhida."
+        }
+        },
+        {
+        "EventId": 13,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "kanepk",
+        "IsHero": false,
+        "Action": "Raise",
+        "Amount": 5953,
+        "AllIn": true
+        },
+        {
+        "EventId": 14,
+        "EventType": "PlayerAction",
+        "Street": "Preflop",
+        "PlayerName": "arcticdog360",
+        "IsHero": false,
+        "Action": "Fold"
+        },
+        {
+        "EventId": 15,
+        "EventType": "UncalledBetReturned",
+        "PlayerName": "kanepk",
+        "Amount": 1635
+        },
+        {
+        "EventId": 16,
+        "EventType": "DealBoard",
+        "Street": "Flop",
+        "Cards": [
+        {
+        "Rank": "Q",
+        "Suit": "d"
+        },
+        {
+        "Rank": "4",
+        "Suit": "d"
+        },
+        {
+        "Rank": "6",
+        "Suit": "c"
+        }
+        ]
+        },
+        {
+        "EventId": 17,
+        "EventType": "DealBoard",
+        "Street": "Turn",
+        "Cards": [
+        {
+        "Rank": "7",
+        "Suit": "c"
+        }
+        ]
+        },
+        {
+        "EventId": 18,
+        "EventType": "DealBoard",
+        "Street": "River",
+        "Cards": [
+        {
+        "Rank": "4",
+        "Suit": "c"
+        }
+        ]
+        },
+        {
+        "EventId": 19,
+        "EventType": "Showdown",
+        "PlayerName": "775170",
+        "Cards": [
+        {
+        "Rank": "A",
+        "Suit": "c"
+        },
+        {
+        "Rank": "6",
+        "Suit": "s"
+        }
+        ],
+        "HandDescription": "two pair, Sixes and Fours"
+        },
+        {
+        "EventId": 20,
+        "EventType": "Showdown",
+        "PlayerName": "kanepk",
+        "Cards": [
+        {
+        "Rank": "A",
+        "Suit": "h"
+        },
+        {
+        "Rank": "J",
+        "Suit": "s"
+        }
+        ],
+        "HandDescription": "a pair of Fours"
+        },
+        {
+        "EventId": 21,
+        "EventType": "Showdown",
+        "PlayerName": "3 BET Oll-in",
+        "Cards": [
+        {
+        "Rank": "8",
+        "Suit": "c"
+        },
+        {
+        "Rank": "8",
+        "Suit": "s"
+        }
+        ],
+        "HandDescription": "two pair, Eights and Fours"
+        },
+        {
+        "EventId": 22,
+        "EventType": "PotAwarded",
+        "PlayerName": "775170",
+        "Amount": 5070,
+        "Pot": 1
+        },
+        {
+        "EventId": 23,
+        "EventType": "PotAwarded",
+        "PlayerName": "3 BET Oll-in",
+        "Amount": 5824,
+        "Pot": 0
+        }
+        ]
+        }
   ]
 }
