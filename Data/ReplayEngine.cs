@@ -45,6 +45,7 @@ public static class ReplayEngine
                 break;
 
             case "DealHoleCards":
+                state.HoleCardsDealt = true;
                 if (ev.PlayerName == heroName)
                     state.HeroCards = ev.Cards;
                 break;
@@ -61,12 +62,81 @@ public static class ReplayEngine
                 HandleAction(state, ev, bb);
                 break;
 
-            case "HandSummary":
-                state.HandWinner = ev.Winner;
-                if (ev.Pot.HasValue) state.Pot = (int)ev.Pot.Value;
-                state.ActionLog.Add($"🏆 {ev.Winner} vence a mão ({FormatBB(state.Pot, bb)})");
+            case "UncalledBetReturned":
+                var returned = (int)(ev.Amount ?? 0);
+                state.Stacks[ev.PlayerName!] += returned;
+                state.Pot -= returned;
+                if (state.StreetBets.ContainsKey(ev.PlayerName!))
+                    state.StreetBets[ev.PlayerName!] -= returned;
+                state.ActionLog.Add($"{ev.PlayerName} recebe de volta {returned} (aposta não paga)");
+                break;
+
+            case "Showdown":
+                if (ev.PlayerName is not null && ev.Cards is not null)
+                {
+                    state.ShowdownCards[ev.PlayerName] = ev.Cards;
+                    var desc = string.IsNullOrEmpty(ev.HandDescription) ? "" : $" ({ev.HandDescription})";
+                    state.ActionLog.Add($"{ev.PlayerName} mostra a mão{desc}");
+                }
+                break;
+
+            case "PotAwarded":
+                var wonAmt = (int)(ev.Amount ?? 0);
+                state.Stacks[ev.PlayerName!] += wonAmt;
+                state.PotsAwarded.Add(new PotResult { PlayerName = ev.PlayerName!, Amount = wonAmt });
+                state.ActionLog.Add($"🏆 {ev.PlayerName} ganha {wonAmt} ({FormatBB(wonAmt, bb)})");
+                break;
+
+            case "PlayerStatus":
+                if (!string.IsNullOrEmpty(ev.Status))
+                    state.ActionLog.Add($"{ev.PlayerName}: {ev.Status}");
+                break;
+
+            case "HandSummary": // formato antigo, mantido por compatibilidade
+                if (ev.Winner is not null)
+                {
+                    if (ev.Pot.HasValue) state.Pot = (int)ev.Pot.Value;
+                    state.PotsAwarded.Add(new PotResult { PlayerName = ev.Winner, Amount = state.Pot });
+                    state.ActionLog.Add($"🏆 {ev.Winner} vence a mão ({FormatBB(state.Pot, bb)})");
+                }
                 break;
         }
+    }
+    
+    public static Dictionary<string, string> CalculatePositions(NotableHand hand)
+    {
+        var seats = hand.InitialTableState.Seats
+            .OrderBy(s => s.SeatNumber)
+            .ToList();
+
+        var buttonIndex = seats.FindIndex(s => s.SeatNumber == hand.InitialTableState.ButtonSeat);
+        if (buttonIndex < 0) buttonIndex = 0;
+
+        var total = seats.Count;
+        var positions = new Dictionary<string, string>();
+
+        // rótulos por número de jogadores, do BTN pro UTG (heads-up e 3-max são casos especiais)
+        string[] labels = total switch
+        {
+            2 => new[] { "BTN/SB", "BB" },
+            3 => new[] { "BTN", "SB", "BB" },
+            4 => new[] { "BTN", "SB", "BB", "UTG" },
+            5 => new[] { "BTN", "SB", "BB", "UTG", "CO" },
+            6 => new[] { "BTN", "SB", "BB", "UTG", "HJ", "CO" },
+            7 => new[] { "BTN", "SB", "BB", "UTG", "UTG+1", "HJ", "CO" },
+            8 => new[] { "BTN", "SB", "BB", "UTG", "UTG+1", "UTG+2", "HJ", "CO" },
+            9 => new[] { "BTN", "SB", "BB", "UTG", "UTG+1", "UTG+2", "UTG+3", "HJ", "CO" },
+            _ => new[] { "BTN", "SB", "BB", "UTG", "UTG+1", "UTG+2", "UTG+3", "UTG+4", "HJ", "CO" }
+        };
+
+        for (int i = 0; i < total; i++)
+        {
+            var seatIndex = (buttonIndex + i) % total;
+            var label = i < labels.Length ? labels[i] : $"UTG+{i - 2}";
+            positions[seats[seatIndex].PlayerName] = label;
+        }
+
+        return positions;
     }
 
     private static void HandleAction(ReplayState state, TimelineEvent ev, int bb)
@@ -91,8 +161,10 @@ public static class ReplayEngine
                 state.Stacks[player] -= amt;
                 state.Pot += amt;
                 AddToStreetBet(state, player, amt);
-                state.LastAction[player] = $"{Traduz(ev.Action!).ToUpper()} {amt} ({FormatBB(amt, bb)})";
-                state.ActionLog.Add($"{player} {Traduz(ev.Action!)} {amt} ({FormatBB(amt, bb)})");
+
+                var isAllIn = ev.AllIn == true;
+                state.LastAction[player] = isAllIn ? "ALL-IN" : Traduz(ev.Action!).ToUpper();
+                state.ActionLog.Add($"{player} {Traduz(ev.Action!)} {amt}{(isAllIn ? " (all-in)" : "")} ({FormatBB(amt, bb)})");
                 break;
         }
     }

@@ -18,6 +18,9 @@
 
         <div class="poker-table">
             <div class="table-felt">
+                <div class="pot-display">
+                    Pote: @state.Pot (@ReplayEngine.FormatBB(state.Pot, Hand.Level.BigBlind))
+                </div>
                 <div class="board">
                     @if (state.Board.Count == 0)
                     {
@@ -25,10 +28,10 @@
                     }
                     @foreach (var card in state.Board)
                     {
-                        <span class="card">@CardText(card)</span>
+                        <span class="card @SuitClass(card.Suit)">@CardText(card)</span>
                     }
                 </div>
-                <div class="pot-display">Pote: @state.Pot (@ReplayEngine.FormatBB(state.Pot, Hand.Level.BigBlind))</div>
+                <div class="game-type">NL Hold'em</div>
             </div>
 
             @{ var ordered = OrderedSeats; }
@@ -39,42 +42,84 @@
                 var acting = state.CurrentEvent?.PlayerName == seat.PlayerName
                              && state.CurrentEvent?.EventType == "PlayerAction";
                 var isDealer = seat.SeatNumber == Hand.InitialTableState.ButtonSeat;
-                var style = GetSeatStyle(i, ordered.Count);
+                var seatStyle = GetSeatStyle(i, ordered.Count);
+                var betAmount = state.StreetBets.GetValueOrDefault(seat.PlayerName);
+                var posLabel = positions.GetValueOrDefault(seat.PlayerName, "");
+                var displayName = state.LastAction.TryGetValue(seat.PlayerName, out var actionLabel)
+                    ? actionLabel
+                    : seat.PlayerName;
 
-                <div class="seat-pos" style="@style">
-                    @if (state.LastAction.TryGetValue(seat.PlayerName, out var lastAction))
-                    {
-                        <div class="seat-action">@lastAction</div>
-                    }
+                <div class="seat-pos" style="@seatStyle">
+                    <div class="hole-slot">
+                        @if (!folded)
+                        {
+                            @if (seat.IsHero && state.HeroCards is not null)
+                            {
+                                <div class="hole-cards hero-hole">
+                                    @foreach (var c in state.HeroCards)
+                                    {
+                                        <span class="card @SuitClass(c.Suit)">@CardText(c)</span>
+                                    }
+                                </div>
+                            }
+                            else if (!seat.IsHero && state.ShowdownCards.TryGetValue(seat.PlayerName, out var villainCards))
+                            {
+                                <div class="hole-cards">
+                                    @foreach (var c in villainCards)
+                                    {
+                                        <span class="card @SuitClass(c.Suit)">@CardText(c)</span>
+                                    }
+                                </div>
+                            }
+                            else if (state.HoleCardsDealt)
+                            {
+                                <div class="hole-cards">
+                                    <span class="card-back"></span>
+                                    <span class="card-back"></span>
+                                </div>
+                            }
+                        }
+                    </div>
 
-                    <div class="seat @(folded ? "folded" : "") @(acting ? "acting" : "")">
-                        <div class="seat-name">
-                            @seat.PlayerName @(seat.IsHero ? "(Você)" : "")
+                    <div class="seat-row">
+                        <div class="seat-avatar @PositionClass(posLabel) @(folded ? "folded" : "") @(acting ? "acting" : "")">
+                            @posLabel
                             @if (isDealer)
                             {
                                 <span class="dealer-badge">D</span>
                             }
                         </div>
-                        <div class="seat-stack">@state.Stacks.GetValueOrDefault(seat.PlayerName) fichas</div>
-                    </div>
-
-                    @if (seat.IsHero && state.HeroCards is not null)
-                    {
-                        <div class="hero-cards">
-                            @foreach (var c in state.HeroCards)
-                            {
-                                <span class="card">@CardText(c)</span>
-                            }
+                        <div class="seat-info @(folded ? "folded" : "")">
+                            <div class="seat-name">@displayName</div>
+                            <div class="seat-stack">
+                                @state.Stacks.GetValueOrDefault(seat.PlayerName)
+                                (@ReplayEngine.FormatBB(state.Stacks.GetValueOrDefault(seat.PlayerName), Hand.Level.BigBlind))
+                            </div>
                         </div>
-                    }
+                    </div>
+                </div>
+            }
+
+            @for (var i = 0; i < ordered.Count; i++)
+            {
+                var seat = ordered[i];
+                var betAmount = state.StreetBets.GetValueOrDefault(seat.PlayerName);
+                if (betAmount <= 0) { continue; }
+                var chipStyle = GetChipStyle(i, ordered.Count);
+
+                <div class="bet-chip" style="@chipStyle">
+                    @betAmount (@ReplayEngine.FormatBB(betAmount, Hand.Level.BigBlind))
                 </div>
             }
         </div>
 
-        @if (state.HandWinner is not null)
+        @if (state.PotsAwarded.Count > 0)
         {
             <div class="winner-box">
-                🏆 @state.HandWinner ganha o pote de @state.Pot fichas (@ReplayEngine.FormatBB(state.Pot, Hand.Level.BigBlind))
+                @foreach (var result in state.PotsAwarded)
+                {
+                    <div>🏆 @result.PlayerName ganha @result.Amount (@ReplayEngine.FormatBB(result.Amount, Hand.Level.BigBlind))</div>
+                }
             </div>
         }
 
@@ -97,20 +142,63 @@
     </div>
 
     <div class="coach-sidebar">
-        <h4>🧠 Sugestão da IA</h4>
+        <h4>🧠 Análise da IA</h4>
+    
         @if (state.CurrentEvent?.HeroAnalysis is { } analysis)
         {
             <div class="coach-box eval-@analysis.Evaluation.ToLower()">
                 <div class="eval-tag">@analysis.Evaluation</div>
                 <p>@analysis.Commentary</p>
+    
                 @if (!string.IsNullOrEmpty(analysis.SuggestedAction))
                 {
                     <div class="suggestion">
                         Sugestão: <strong>@analysis.SuggestedAction</strong>
                         @(analysis.SuggestedAmount > 0
-                            ? $" ({analysis.SuggestedAmount} / {ReplayEngine.FormatBB((int)analysis.SuggestedAmount, Hand.Level.BigBlind)})"
+                            ? $" ({ReplayEngine.FormatBB((int)analysis.SuggestedAmount, Hand.Level.BigBlind)})"
                             : "")
                     </div>
+                }
+    
+                @if (analysis.DecisionFactors is { Count: > 0 })
+                {
+                    <div class="factors">
+                        @foreach (var factor in analysis.DecisionFactors)
+                        {
+                            <span class="factor-chip">@factor</span>
+                        }
+                    </div>
+                }
+    
+                @if (!string.IsNullOrEmpty(analysis.CoachingPoint))
+                {
+                    <div class="coaching-point">💡 @analysis.CoachingPoint</div>
+                }
+            </div>
+        }
+        else if (state.CurrentEvent?.OpponentAnalysis is { } oppAnalysis)
+        {
+            <div class="coach-box opponent-box">
+                <div class="eval-tag opponent-tag">
+                    Leitura do vilão @(!string.IsNullOrEmpty(oppAnalysis.PressureLevel) ? $"· Pressão {oppAnalysis.PressureLevel}" : "")
+                </div>
+                <p>@oppAnalysis.Commentary</p>
+    
+                @if (!string.IsNullOrEmpty(oppAnalysis.RangeAssessment))
+                {
+                    <div class="range-row">
+                        Range: <span class="range-badge range-@oppAnalysis.RangeAssessment.ToLower()">@oppAnalysis.RangeAssessment</span>
+                    </div>
+                }
+    
+                @if (!string.IsNullOrEmpty(oppAnalysis.RangeNote))
+                {
+                    <p class="range-note">@oppAnalysis.RangeNote</p>
+                }
+    
+                @if (!string.IsNullOrEmpty(oppAnalysis.ExploitAdjustment))
+                {
+                    <div class="exploit-note">🎯 @oppAnalysis.ExploitAdjustment</div>
                 }
             </div>
         }
@@ -129,6 +217,7 @@
     private int stepIndex;
     private int totalEvents;
     private ReplayState state = new();
+    private Dictionary<string, string> positions = new();
 
     private bool isPlaying;
     private System.Threading.Timer? autoPlayTimer;
@@ -137,6 +226,7 @@
     {
         totalEvents = Hand.TimelineEvents.Count;
         stepIndex = 0;
+        positions = ReplayEngine.CalculatePositions(Hand);
         StopAutoPlay();
         Recompute();
     }
@@ -190,17 +280,43 @@
 
     private static string GetSeatStyle(int indexFromHero, int total)
     {
-        double angleDeg = 90 - (360.0 / total) * indexFromHero;
+        var (left, top) = PointOnEllipse(indexFromHero, total, 42, 44);
+        return $"left:{Fmt(left)}%; top:{Fmt(top)}%;";
+    }
+
+    // ponto mais próximo do centro, na mesma direção do assento — aposta sempre "aponta pra dentro" da mesa
+    private static string GetChipStyle(int indexFromHero, int total)
+    {
+        var (left, top) = PointOnEllipse(indexFromHero, total, 26, 27);
+        return $"left:{Fmt(left)}%; top:{Fmt(top)}%;";
+    }
+
+    private static (double left, double top) PointOnEllipse(int indexFromHero, int total, double rx, double ry)
+    {
+        double angleDeg = 90 + (360.0 / total) * indexFromHero;
         double angleRad = angleDeg * Math.PI / 180;
-        double rx = 42, ry = 44;
         double left = 50 + rx * Math.Cos(angleRad);
         double top = 50 + ry * Math.Sin(angleRad);
-        return $"left:{left.ToString(System.Globalization.CultureInfo.InvariantCulture)}%; top:{top.ToString(System.Globalization.CultureInfo.InvariantCulture)}%;";
+        return (left, top);
     }
+
+    private static string Fmt(double v) => v.ToString(System.Globalization.CultureInfo.InvariantCulture);
 
     private static string CardText(Card c) => $"{c.Rank}{Naipe(c.Suit)}";
     private static string Naipe(string s) => s switch
     {
         "h" => "♥", "d" => "♦", "c" => "♣", "s" => "♠", _ => s
+    };
+    private static string SuitClass(string s) => (s == "h" || s == "d") ? "red" : "black";
+
+    private static string PositionClass(string pos) => pos switch
+    {
+        _ when pos.StartsWith("BTN") => "pos-btn",
+        "SB" => "pos-sb",
+        "BB" => "pos-bb",
+        "CO" => "pos-co",
+        "HJ" => "pos-hj",
+        _ when pos.StartsWith("UTG") => "pos-utg",
+        _ => "pos-other"
     };
 }

@@ -50,21 +50,6 @@ public class SeatInfo
     public bool IsHero { get; set; }
 }
 
-public class TimelineEvent
-{
-    public int EventId { get; set; }
-    public string EventType { get; set; } = "";
-    public string? Street { get; set; }
-    public string? PlayerName { get; set; }
-    public bool? IsHero { get; set; }
-    public string? Action { get; set; }
-    public decimal? Amount { get; set; }
-    public List<Card>? Cards { get; set; }
-    public HeroAnalysis? HeroAnalysis { get; set; }
-    public string? Winner { get; set; }   
-    public decimal? Pot { get; set; }     
-}
-
 public class Card
 {
     public string Rank { get; set; } = "";
@@ -76,6 +61,37 @@ public class HeroAnalysis
     public bool IsKeyDecision { get; set; }
     public string Evaluation { get; set; } = "";
     public string Commentary { get; set; } = "";
-    public string SuggestedAction { get; set; } = "";
+    public string? SuggestedAction { get; set; }
     public decimal SuggestedAmount { get; set; }
+    public List<string>? DecisionFactors { get; set; }   
+    public string? CoachingPoint { get; set; }            
+}
+
+public class OpponentAnalysis                             
+{
+    public bool IsKeyDecision { get; set; }
+    public string Commentary { get; set; } = "";
+    public string RangeAssessment { get; set; } = "";
+    public string RangeNote { get; set; } = "";
+    public string ExploitAdjustment { get; set; } = "";
+    public string PressureLevel { get; set; } = "";
+}
+
+public class TimelineEvent
+{
+    public int EventId { get; set; }
+    public string EventType { get; set; } = "";
+    public string? Street { get; set; }
+    public string? PlayerName { get; set; }
+    public bool? IsHero { get; set; }
+    public string? Action { get; set; }
+    public decimal? Amount { get; set; }
+    public bool? AllIn { get; set; }
+    public List<Card>? Cards { get; set; }
+    public HeroAnalysis? HeroAnalysis { get; set; }
+    public OpponentAnalysis? OpponentAnalysis { get; set; }  
+    public string? Winner { get; set; }
+    public decimal? Pot { get; set; }
+    public string? Status { get; set; }
+    public string? HandDescription { get; set; }
 }

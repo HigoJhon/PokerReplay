@@ -1,7 +1,7 @@
 /* ===== Base ===== */
 
 body {
-    background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background: #14161a;
     min-height: 100vh;
     color: #eee;
     margin: 0;
@@ -10,8 +10,6 @@ body {
 h1, h2, h3, h4, p {
     color: #eee;
 }
-
-/* ===== Cabeçalho da mão ===== */
 
 .hand-header {
     max-width: 1400px;
@@ -55,14 +53,8 @@ h1, h2, h3, h4, p {
     box-sizing: border-box;
 }
 
-.coach-sidebar h4 {
-    margin-top: 0;
-}
-
-.no-analysis {
-    color: #999;
-    font-style: italic;
-}
+.coach-sidebar h4 { margin-top: 0; }
+.no-analysis { color: #999; font-style: italic; }
 
 .coach-box {
     background: #2a2a2a;
@@ -73,7 +65,7 @@ h1, h2, h3, h4, p {
 
 .coach-box.eval-mistake { border-left-color: #dc3545; }
 .coach-box.eval-inaccurate { border-left-color: #d39e00; }
-.coach-box.eval-good { border-left-color: #28a745; }
+.coach-box.eval-good, .coach-box.eval-optimal { border-left-color: #28a745; }
 
 .eval-tag {
     font-weight: bold;
@@ -82,55 +74,59 @@ h1, h2, h3, h4, p {
     margin-bottom: 4px;
 }
 
-.suggestion {
-    margin-top: 8px;
-    font-size: 0.9em;
-}
+.suggestion { margin-top: 8px; font-size: 0.9em; }
 
-/* ===== Indicador de street (alinhado com a mesa) ===== */
+/* ===== Street tracker estilo abas ===== */
 
 .street-tracker {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 8px;
     max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
-    flex-wrap: wrap;
+    margin: 0 auto 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #333;
 }
 
 .street-pill {
-    background: rgba(255, 255, 255, 0.1);
-    color: #999;
-    padding: 4px 12px;
-    border-radius: 12px;
+    flex: 1;
+    text-align: center;
+    background: #1c1c1c;
+    color: #888;
+    padding: 8px 12px;
     font-size: 0.8em;
     font-weight: bold;
+    border-right: 1px solid #333;
 }
+
+.street-pill:last-child { border-right: none; }
 
 .street-pill.active {
-    background: gold;
-    color: #000;
+    background: #c0392b;
+    color: #fff;
 }
 
-/* ===== Mesa ===== */
+/* ===== Mesa estilo PokerStars ===== */
 
 .poker-table {
     position: relative;
     width: 100%;
     max-width: 780px;
-    aspect-ratio: 1.5 / 1;
+    aspect-ratio: 1.7 / 1;
     margin: 20px auto;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 .table-felt {
     position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, #1b7a4d 0%, #0b5c38 70%, #06371f 100%);
-    border: 10px solid #5b3a1e;
+    inset: 20px;
+    background: radial-gradient(ellipse at center, #1a7a4a 0%, #0d5c38 60%, #073d26 100%);
     border-radius: 50%;
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 10px solid #111;
+    box-shadow:
+        inset 0 0 0 3px rgba(255, 255, 255, 0.05),
+        inset 0 0 50px rgba(0, 0, 0, 0.6),
+        0 10px 24px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,99 +134,320 @@ h1, h2, h3, h4, p {
     gap: 6px;
 }
 
-.board {
-    display: flex;
-    gap: 4px;
-    min-height: 32px;
-}
-
-.board-placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
 .pot-display {
-    color: gold;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 0.75em;
     font-weight: bold;
-    font-size: 0.9em;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 4px;
 }
 
+.board { display: flex; gap: 6px; min-height: 40px; }
+.board-placeholder { color: rgba(255, 255, 255, 0.3); }
+
+.game-type {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* ===== Assentos ===== */
 .seat-pos {
     position: absolute;
     transform: translate(-50%, -50%);
-    width: 130px;
+    width: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4px;
 }
 
-.seat {
-    background: #16213e;
-    color: #fff;
+/* espaço reservado fixo — evita o "pulo" quando as cartas aparecem/somem */
+.hole-slot {
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* bolha de aposta: elemento independente, não afeta o layout do assento */
+.bet-chip {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffd400;
+    font-size: 0.72em;
+    font-weight: bold;
+    padding: 3px 10px;
     border-radius: 10px;
-    padding: 6px 10px;
-    text-align: center;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.seat-avatar {
+    position: relative;
+    min-width: 42px;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68em;
+    font-weight: bold;
+    flex-shrink: 0;
+    white-space: nowrap;
     border: 2px solid transparent;
-    transition: all 0.2s;
-    width: 100%;
-    box-sizing: border-box;
+    color: #fff;
 }
 
-.seat.folded {
-    opacity: 0.3;
+.seat-avatar.folded { opacity: 0.3; }
+
+.seat-avatar.acting {
+    border-color: #ffd400;
+    box-shadow: 0 0 10px #ffd400;
 }
 
-.seat.acting {
-    border-color: gold;
-    box-shadow: 0 0 12px gold;
+/* cores por posição */
+.seat-avatar.pos-btn { background: #b8860b; }
+.seat-avatar.pos-sb { background: #6a3fa0; }
+.seat-avatar.pos-bb { background: #a0303f; }
+.seat-avatar.pos-co { background: #2e7d4f; }
+.seat-avatar.pos-hj { background: #1f7a7a; }
+.seat-avatar.pos-utg { background: #2b5faa; }
+.seat-avatar.pos-other { background: #555; }
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
+
+/* ===== Análise do herói: fatores + coaching point ===== */
+
+.factors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.factor-chip {
+    background: #333;
+    color: #ccc;
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.coaching-point {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #3a3a3a;
+    font-size: 0.85em;
+    color: #ffd400;
+    font-style: italic;
+}
+
+/* ===== Análise do vilão (OpponentAnalysis) ===== */
+
+.opponent-box {
+    border-left-color: #7b5ea7 !important;
+}
+
+.opponent-tag {
+    color: #b79ee0;
+}
+
+.range-row {
+    margin-top: 8px;
+    font-size: 0.85em;
+}
+
+.range-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.85em;
+    margin-left: 4px;
+}
+
+.range-badge.range-strong { background: #6a1f1f; color: #ff8a8a; }
+.range-badge.range-wide { background: #1f4a6a; color: #8ac8ff; }
+.range-badge.range-medium,
+.range-badge.range-moderate { background: #6a5a1f; color: #ffe08a; }
+.range-badge.range-weak { background: #2b6a2f; color: #9ee89e; }
+
+.range-note {
+    font-size: 0.82em;
+    color: #bbb;
+    margin-top: 6px;
+}
+
+.exploit-note {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #3a3a3a;
+    font-size: 0.82em;
+    color: #b79ee0;
+}
+
+.seat-avatar.hero {
+    border-color: #fff;
+    color: #999;
+}
+
+.seat-avatar.acting {
+    border-color: #ffd400;
+    box-shadow: 0 0 10px #ffd400;
+}
+
+.seat-avatar.folded { opacity: 0.3; }
+
+.seat-info {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 4px 10px;
+    text-align: left;
+    min-width: 80px;
+}
+
+.seat-info.folded { opacity: 0.35; }
 
 .seat-name {
-    font-size: 0.8em;
+    font-size: 0.72em;
+    font-weight: bold;
+    color: #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+/* ===== Mesa + controles lado a lado ===== */
+
+.table-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.poker-table {
+    flex: 1 1 500px;
+}
+
+.side-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.ctrl-btn {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+.ctrl-btn:hover:not(:disabled) {
+    background: #2d2d2d;
+}
+
+.ctrl-btn.main {
+    background: #ffd400;
+    color: #000;
+    border-color: #ffd400;
     font-weight: bold;
 }
+
+.ctrl-btn.main:hover:not(:disabled) {
+    background: #e6c000;
+}
+
+.ctrl-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.step-counter {
+    color: #999;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+/* ===== Fichas / stack ===== */
 
 .seat-stack {
-    font-size: 0.75em;
-    color: #ccc;
+    font-size: 0.72em;
+    color: #4caf50;
+    font-weight: bold;
 }
 
-.seat-action {
-    font-size: 0.75em;
-    font-weight: bold;
-    color: gold;
-    margin-bottom: 2px;
-}
+/* ===== Aposta / ação (amarelo) ===== */
 
 .dealer-badge {
-    background: #fff;
-    color: #000;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #c0392b;
+    color: #fff;
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.65em;
+    font-size: 0.6em;
     font-weight: bold;
-    margin-left: 4px;
+    border: 1px solid #fff;
+}
+
+/* ===== Cartas ===== */
+
+.hole-cards {
+    display: flex;
+    gap: 3px;
+}
+
+.hero-hole .card {
+    font-size: 1.3em;
+    padding: 8px 12px;
 }
 
 .card {
     display: inline-block;
     background: #fff;
-    border-radius: 6px;
-    padding: 6px 10px;
+    border-radius: 5px;
+    padding: 4px 7px;
     font-weight: bold;
-    color: #000;
-    font-size: 1.1em;
+    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.hero-cards {
-    margin-top: 6px;
-    display: flex;
-    gap: 4px;
-    justify-content: center;
+.card.red { color: #c00020; }
+.card.black { color: #111; }
+
+.card-back {
+    width: 22px;
+    height: 30px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #b03030, #b03030 3px, #8a2020 3px, #8a2020 6px);
+    border: 1px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+
+/* ===== Aposta / ação ===== */
 
 /* ===== Vencedor ===== */
 
@@ -247,27 +464,20 @@ h1, h2, h3, h4, p {
 
 /* ===== Controles ===== */
 
-.controls {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-top: 12px;
+.round-btn.main {
+    width: 46px;
+    height: 46px;
+    background: #c0392b;
+    border: none;
+    font-size: 1.1em;
 }
+
+.round-btn:disabled { opacity: 0.3; cursor: default; }
 
 /* ===== Histórico discreto ===== */
 
-.history-collapsed {
-    margin-top: 16px;
-    color: #ccc;
-}
-
-.history-collapsed summary {
-    cursor: pointer;
-    font-size: 0.85em;
-    color: #999;
-    padding: 4px 0;
-}
-
+.history-collapsed { margin-top: 16px; color: #ccc; }
+.history-collapsed summary { cursor: pointer; font-size: 0.85em; color: #999; padding: 4px 0; }
 .history-collapsed .action-log {
     max-height: 200px;
     overflow-y: auto;
@@ -281,8 +491,5 @@ h1, h2, h3, h4, p {
 /* ===== Responsivo ===== */
 
 @media (max-width: 1100px) {
-    .coach-sidebar {
-        width: 100%;
-        position: static;
-    }
+    .coach-sidebar { width: 100%; position: static; }
 }
