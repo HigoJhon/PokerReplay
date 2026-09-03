@@ -1,0 +1,173 @@
+@using Replay.Models
+@using Replay.Data
+@implements IDisposable
+
+<div class="replay-wrapper">
+    <div class="hand-header">
+        <h3>Mão @Hand.HandIndexInFile — @Hand.LearningTheme</h3>
+        <p class="summary">@Hand.CoachSummary</p>
+    </div>
+
+    <div class="table-area">
+        <div class="street-tracker">
+            @foreach (var street in streets)
+            {
+                <span class="street-pill @(street == state.CurrentStreet ? "active" : "")">@street</span>
+            }
+        </div>
+        <div class="board">
+            @if (state.Board.Count == 0)
+            {
+                <span class="board-placeholder">—</span>
+            }
+            @foreach (var card in state.Board)
+            {
+                <span class="card">@CardText(card)</span>
+            }
+        </div>
+        <div class="pot">Pote: @state.Pot (@ReplayEngine.FormatBB(state.Pot, Hand.Level.BigBlind))</div>
+
+        <div class="seats">
+            @foreach (var seat in Hand.InitialTableState.Seats)
+            {
+                var folded = state.FoldedPlayers.Contains(seat.PlayerName);
+                var acting = state.CurrentEvent?.PlayerName == seat.PlayerName
+                             && state.CurrentEvent?.EventType == "PlayerAction";
+                var isDealer = seat.SeatNumber == Hand.InitialTableState.ButtonSeat;
+                <div class="seat @(folded ? "folded" : "") @(acting ? "acting" : "")">
+                    <div class="seat-name">
+                        @seat.PlayerName @(seat.IsHero ? "(Você)" : "")
+                        @if (isDealer)
+                        {
+                            <span class="dealer-badge">D</span>
+                        }
+                    </div>
+                    <div class="seat-stack">
+                        @state.Stacks.GetValueOrDefault(seat.PlayerName) fichas
+                        (@ReplayEngine.FormatBB(state.Stacks.GetValueOrDefault(seat.PlayerName), Hand.Level.BigBlind))
+                    </div>
+                    @if (seat.IsHero && state.HeroCards is not null)
+                    {
+                        <div class="hero-cards">
+                            @foreach (var c in state.HeroCards)
+                            {
+                                <span class="card small">@CardText(c)</span>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (state.CurrentEvent?.HeroAnalysis is { } analysis)
+    {
+        <div class="coach-box">
+            <strong>@analysis.Evaluation:</strong> @analysis.Commentary
+            @if (!string.IsNullOrEmpty(analysis.SuggestedAction))
+            {
+                <div class="suggestion">
+                    Sugestão: @analysis.SuggestedAction
+                    @(analysis.SuggestedAmount > 0 ? $"({analysis.SuggestedAmount} / {ReplayEngine.FormatBB((int)analysis.SuggestedAmount, Hand.Level.BigBlind)})" : "")
+                </div>
+            }
+        </div>
+    }
+
+    @if (isHandOver && winnerName is not null)
+    {
+        <div class="winner-box">
+            🏆 @winnerName ganha o pote de @state.Pot fichas
+        </div>
+    }
+
+    <div class="controls">
+        <button @onclick="Prev" disabled="@(stepIndex <= 0)">◀ Anterior</button>
+        <button @onclick="TogglePlay">@(isPlaying ? "⏸ Pausar" : "▶ Auto-play")</button>
+        <span>Evento @(stepIndex + 1) / @totalEvents</span>
+        <button @onclick="Next" disabled="@(stepIndex >= totalEvents - 1)">Próximo ▶</button>
+    </div>
+
+    <div class="action-log">
+        @foreach (var line in state.ActionLog)
+        {
+            <div>@line</div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public NotableHand Hand { get; set; } = default!;
+    
+    private readonly string[] streets = { "Preflop", "Flop", "Turn", "River" };
+    private int stepIndex;
+    private int totalEvents;
+    private ReplayState state = new();
+
+    private bool isPlaying;
+    private System.Threading.Timer? autoPlayTimer;
+
+    private bool isHandOver => stepIndex == totalEvents - 1;
+    private string? winnerName =>
+        isHandOver && Hand.InitialTableState.Seats.Count(s => !state.FoldedPlayers.Contains(s.PlayerName)) == 1
+            ? Hand.InitialTableState.Seats.First(s => !state.FoldedPlayers.Contains(s.PlayerName)).PlayerName
+            : null;
+
+    protected override void OnParametersSet()
+    {
+        totalEvents = Hand.TimelineEvents.Count;
+        stepIndex = 0;
+        StopAutoPlay();
+        Recompute();
+    }
+
+    private void Next()
+    {
+        if (stepIndex < totalEvents - 1)
+        {
+            stepIndex++;
+            Recompute();
+        }
+        else
+        {
+            StopAutoPlay();
+        }
+    }
+
+    private void Prev() { if (stepIndex > 0) { stepIndex--; Recompute(); } }
+    private void Recompute() => state = ReplayEngine.BuildState(Hand, stepIndex);
+
+    private void TogglePlay()
+    {
+        if (isPlaying)
+        {
+            StopAutoPlay();
+            return;
+        }
+
+        isPlaying = true;
+        autoPlayTimer = new System.Threading.Timer(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                Next();
+                StateHasChanged();
+            });
+        }, null, 1500, 1500);
+    }
+
+    private void StopAutoPlay()
+    {
+        isPlaying = false;
+        autoPlayTimer?.Dispose();
+        autoPlayTimer = null;
+    }
+
+    public void Dispose() => autoPlayTimer?.Dispose();
+
+    private static string CardText(Card c) => $"{c.Rank}{Naipe(c.Suit)}";
+    private static string Naipe(string s) => s switch
+    {
+        "h" => "♥", "d" => "♦", "c" => "♣", "s" => "♠", _ => s
+    };
+}

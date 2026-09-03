@@ -1,5 +1,8 @@
 @page "/"
-@inject Replay.Data.HandHistoryLoader Loader
+@rendermode InteractiveServer
+@using Replay.Data
+@using Replay.Models
+@inject HandHistoryLoader Loader
 
 <h1>Poker Replay</h1>
 
@@ -9,20 +12,32 @@
 }
 else
 {
-    <p>Torneio: @dados.TournamentContext.TournamentId</p>
-    <ul>
+    <select @onchange="OnHandChanged">
         @foreach (var hand in dados.NotableHands)
         {
-            <li>M�o @hand.HandIndexInFile - @hand.LearningTheme</li>
+            <option value="@hand.HandIndexInFile">Mão @hand.HandIndexInFile — @hand.LearningTheme</option>
         }
-    </ul>
+    </select>
+
+    @if (selectedHand is not null)
+    {
+        <HandReplay Hand="selectedHand" />
+    }
 }
 
 @code {
-    private Replay.Models.HandHistoryFile? dados;
+    private HandHistoryFile? dados;
+    private NotableHand? selectedHand;
 
     protected override async Task OnInitializedAsync()
     {
         dados = await Loader.LoadAsync();
+        selectedHand = dados?.NotableHands.FirstOrDefault();
+    }
+
+    private void OnHandChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out var idx))
+            selectedHand = dados?.NotableHands.FirstOrDefault(h => h.HandIndexInFile == idx);
     }
 }
